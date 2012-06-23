@@ -19,6 +19,7 @@
 		94EC6C93159673C20018AD05 /* SportSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6C91159673C20018AD05 /* SportSelectionViewController.xib */; };
 		94EC6C97159677310018AD05 /* GamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6C95159677310018AD05 /* GamesViewController.m */; };
 		94EC6C98159677310018AD05 /* GamesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6C96159677310018AD05 /* GamesViewController.xib */; };
+		94EC6C9B15967EEC0018AD05 /* GameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6C9A15967EEC0018AD05 /* GameTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		94EC6C94159677310018AD05 /* GamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamesViewController.h; sourceTree = "<group>"; };
 		94EC6C95159677310018AD05 /* GamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamesViewController.m; sourceTree = "<group>"; };
 		94EC6C96159677310018AD05 /* GamesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GamesViewController.xib; sourceTree = "<group>"; };
+		94EC6C9915967EEC0018AD05 /* GameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTableViewCell.h; sourceTree = "<group>"; };
+		94EC6C9A15967EEC0018AD05 /* GameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,8 @@
 				94EC6C94159677310018AD05 /* GamesViewController.h */,
 				94EC6C95159677310018AD05 /* GamesViewController.m */,
 				94EC6C96159677310018AD05 /* GamesViewController.xib */,
+				94EC6C9915967EEC0018AD05 /* GameTableViewCell.h */,
+				94EC6C9A15967EEC0018AD05 /* GameTableViewCell.m */,
 				94EC6C71159666080018AD05 /* Supporting Files */,
 			);
 			path = SportsBard;
@@ -184,6 +189,7 @@
 				94EC6C88159666980018AD05 /* MainViewController.m in Sources */,
 				94EC6C92159673C20018AD05 /* SportSelectionViewController.m in Sources */,
 				94EC6C97159677310018AD05 /* GamesViewController.m in Sources */,
+				94EC6C9B15967EEC0018AD05 /* GameTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
