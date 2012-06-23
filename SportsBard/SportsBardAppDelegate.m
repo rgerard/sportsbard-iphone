@@ -35,8 +35,9 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_handleLoginSuccess:) name:LoginSuccessNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_handleSportSelected:) name:SportSelectedNotification object:nil];
 	
-	self.mainViewController = [[MainViewController alloc] initWithNibName:nil bundle:nil];
-	[self.window addSubview:self.mainViewController.view];
+	//self.mainViewController = [[MainViewController alloc] initWithNibName:nil bundle:nil];
+	//[self.window addSubview:self.mainViewController.view];
+	[self _handleSportSelected:nil];
 	
     return YES;
 }
