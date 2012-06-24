@@ -91,7 +91,7 @@
 }
 
 - (NSMutableArray *)gamesFrom:(NSDate *)start until:(NSDate *)end fromData:(NSArray *)games {
-	NSMutableArray *gamesToday = [NSMutableArray array];
+	NSMutableArray *todaysGames = [NSMutableArray array];
 	
 	NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
 	NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init]; 
@@ -104,11 +104,11 @@
 		NSDate *actualDate = [dateFormat dateFromString:gameDate];
 		
 		if([start compare:actualDate] == NSOrderedAscending && [end compare:actualDate] == NSOrderedDescending) {
-			[gamesToday addObject:game];
+			[todaysGames addObject:game];
 		}
 	}
 	
-	return gamesToday;
+	return todaysGames;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
