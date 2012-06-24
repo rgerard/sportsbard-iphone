@@ -62,7 +62,7 @@
 	[self.dateLbl setFont:[UIFont boldSystemFontOfSize:18.0]];
 	[self.backView addSubview:self.dateLbl];
 	
-	self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.dateLbl.frame.origin.y + self.dateLbl.frame.size.height, 320, (480 - (self.dateLbl.frame.origin.y + self.dateLbl.frame.size.height))) style:UITableViewStylePlain];
+	self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.dateLbl.frame.origin.y + self.dateLbl.frame.size.height, 320, 380) style:UITableViewStylePlain];
 	[self.tableView setDelegate:self];
 	[self.tableView setDataSource:self];
 	[self.tableView setBackgroundColor:[UIColor clearColor]];
@@ -132,7 +132,28 @@
 			[self.gameData replaceObjectAtIndex:foundGame withObject:dataDict];
 			[self.tableView reloadData];
 		}
-	}
+	} else if(eventData && [[eventData objectForKey:@"name"] isEqualToString:@"inningupdated"]) {
+		NSArray *dataArr = [eventData objectForKey:@"args"];
+		NSDictionary *dataDict = [dataArr objectAtIndex:0];
+		
+		NSLog(@"data is %@", dataDict);
+		
+		// Find the game to update
+		NSString *gameid = [dataDict objectForKey:@"gameid"];
+		NSInteger foundGame = -1;
+		for(int i=0; i < [self.gameData count]; i++) {
+			NSDictionary *game = [self.gameData objectAtIndex:i];
+			if([[game objectForKey:@"gameid"] isEqualToString:gameid]) {
+				foundGame = i;
+				break;
+			}
+		}
+		
+		if(foundGame != -1) {
+			[self.gameData replaceObjectAtIndex:foundGame withObject:dataDict];
+			[self.tableView reloadData];
+		}
+	} 
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -154,7 +175,9 @@
     GameTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[GameTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+    } else {
+		[cell reset];
+	}
 	
 	NSDictionary *singleGame = [self.gameData objectAtIndex:indexPath.row];
 	[cell setGameData:singleGame];

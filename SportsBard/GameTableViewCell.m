@@ -46,8 +46,8 @@
 		[self.cellHeader setFrame:CGRectMake(20, 10, 280, 40)];
 		
 		// Set a gradient
-		UIColor *lowColor = [UIColor colorWithRed:0.0/255.0 green:129.0/255.0 blue:69.0/255.0 alpha:1.0];
-		UIColor *highColor = [UIColor colorWithRed:120.0/255.0 green:195.0/255.0 blue:114.0/255.0 alpha:1.0];
+		UIColor *highColor = [UIColor colorWithRed:23.0/255.0 green:150.0/255.0 blue:255.0/255.0 alpha:1.0];
+		UIColor *lowColor = [UIColor colorWithRed:23.0/255.0 green:79.0/255.0 blue:255.0/255.0 alpha:1.0];
 		
 		CAGradientLayer *gradient = [CAGradientLayer layer];
 		gradient.frame = self.cellHeader.bounds;
@@ -101,13 +101,18 @@
     return self;
 }
 
+- (void)reset {
+	[self.cellHeaderInning setText:@""];
+	[self.cellHeaderScores setText:@""];
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     CGRect contentBounds = [self.contentView bounds];
     
     [self.cellHeader setFrame:CGRectMake(contentBounds.origin.x + 20, contentBounds.origin.y + 10, 280, 40)];
-	[self.cellHeaderInning setFrame:CGRectMake(contentBounds.origin.x, contentBounds.origin.y-5, 90, 40)];
-    [self.cellHeaderScores setFrame:CGRectMake(contentBounds.origin.x + 80, contentBounds.origin.y-5, 130, 40)];
+	[self.cellHeaderInning setFrame:CGRectMake(contentBounds.origin.x + 20, contentBounds.origin.y-5, 90, 40)];
+    [self.cellHeaderScores setFrame:CGRectMake(contentBounds.origin.x + 150, contentBounds.origin.y-5, 130, 40)];
 	
     [self.cellGameView setFrame:CGRectMake(contentBounds.origin.x + 20, contentBounds.origin.y + 40, 280, 80)];
 	[self.visitorLogo setFrame:CGRectMake(contentBounds.origin.x + 30, contentBounds.origin.y + 15, 50, 50)];
@@ -136,11 +141,12 @@
 	[dateFormat setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"EST"]];
 	NSDate *actualDate = [dateFormat dateFromString:date];
 	
+	// Formatter to turn the NSDate into a nicely formatter time
+	NSDateFormatter *cellHeaderDateFormatter = [[NSDateFormatter alloc] init];
+	[cellHeaderDateFormatter setDateFormat:@"K:mm a, z"];
+	
 	NSDate *now = [NSDate date];
-	if([now compare:actualDate] == NSOrderedAscending) {
-		// Formatter to turn the NSDate into a nicely formatter time
-		NSDateFormatter *cellHeaderDateFormatter = [[NSDateFormatter alloc] init];
-		[cellHeaderDateFormatter setDateFormat:@"K:mm a, z"];
+	if([now compare:actualDate] == NSOrderedDescending) {
 		
 		// 0 means it hasn't started, 100 means it's over
 		if([inning integerValue] == 0) {
@@ -163,10 +169,11 @@
 			[self.cellHeaderInning setText:[NSString stringWithFormat:@"%@ %@", direction, ordinalNum]];
 		}
 		
-		[self.cellHeaderScores setText:[NSString stringWithFormat:@"%@ vs %@", [awayteam uppercaseString], [hometeam uppercaseString]]];
-	} else {
 		NSString *headerScore = [NSString stringWithFormat:@"%@ %@, %@ %@", [awayteam uppercaseString], awayscore, [hometeam uppercaseString], homescore];
 		[self.cellHeaderScores setText:headerScore];	
+	} else {
+		[self.cellHeaderInning setText:[cellHeaderDateFormatter stringFromDate:actualDate]];
+		[self.cellHeaderScores setText:[NSString stringWithFormat:@"%@ vs %@", [awayteam uppercaseString], [hometeam uppercaseString]]];
 	}
 
 	[self.visitorLogo setImage:[UIImage imageNamed:[awayteam uppercaseString]]];

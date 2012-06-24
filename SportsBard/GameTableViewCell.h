@@ -10,4 +10,5 @@
 
 @interface GameTableViewCell : UITableViewCell
 @property(strong, nonatomic) NSDictionary *gameData;
+- (void)reset;
 @end
