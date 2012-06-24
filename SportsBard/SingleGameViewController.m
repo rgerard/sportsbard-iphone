@@ -256,6 +256,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	[self.storyData filterUsingPredicate:[NSPredicate predicateWithFormat:@"self.isHidden == FALSE"]];
+	
 	return [self.storyData count];
 }
 
