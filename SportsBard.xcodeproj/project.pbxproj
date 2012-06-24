@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		475EB20E1596A30400D70102 /* SingleGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 475EB20C1596A30400D70102 /* SingleGameViewController.m */; };
+		475EB20F1596A30400D70102 /* SingleGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 475EB20D1596A30400D70102 /* SingleGameViewController.xib */; };
 		94EC6C6B159666080018AD05 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC6C6A159666080018AD05 /* UIKit.framework */; };
 		94EC6C6D159666080018AD05 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC6C6C159666080018AD05 /* Foundation.framework */; };
 		94EC6C6F159666080018AD05 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC6C6E159666080018AD05 /* CoreGraphics.framework */; };
@@ -61,6 +63,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		475EB20B1596A30400D70102 /* SingleGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleGameViewController.h; sourceTree = "<group>"; };
+		475EB20C1596A30400D70102 /* SingleGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleGameViewController.m; sourceTree = "<group>"; };
+		475EB20D1596A30400D70102 /* SingleGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleGameViewController.xib; sourceTree = "<group>"; };
 		94EC6C66159666080018AD05 /* SportsBard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsBard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94EC6C6A159666080018AD05 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		94EC6C6C159666080018AD05 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -153,7 +158,7 @@
 		94EC70B5159697330018AD05 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		94EC70B6159697330018AD05 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		94EC70B8159697330018AD05 /* SocketRocketOSX-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SocketRocketOSX-Info.plist"; sourceTree = "<group>"; };
-		94EC70CE159699870018AD05 /* NSDate+DateAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; path = "NSDate+DateAdditions.h"; sourceTree = "<group>"; };
+		94EC70CE159699870018AD05 /* NSDate+DateAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateAdditions.h"; sourceTree = "<group>"; };
 		94EC70CF159699870018AD05 /* NSDate+DateAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,6 +229,9 @@
 				94EC6C94159677310018AD05 /* GamesViewController.h */,
 				94EC6C95159677310018AD05 /* GamesViewController.m */,
 				94EC6C96159677310018AD05 /* GamesViewController.xib */,
+				475EB20B1596A30400D70102 /* SingleGameViewController.h */,
+				475EB20C1596A30400D70102 /* SingleGameViewController.m */,
+				475EB20D1596A30400D70102 /* SingleGameViewController.xib */,
 				94EC6C9915967EEC0018AD05 /* GameTableViewCell.h */,
 				94EC6C9A15967EEC0018AD05 /* GameTableViewCell.m */,
 				94EC6CC6159692190018AD05 /* DataRequester.h */,
@@ -508,6 +516,7 @@
 				94EC70C8159697330018AD05 /* LICENSE.txt in Resources */,
 				94EC70C9159697330018AD05 /* virtualenv.py in Resources */,
 				94EC70CD159697330018AD05 /* SocketRocketOSX-Info.plist in Resources */,
+				475EB20F1596A30400D70102 /* SingleGameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +560,7 @@
 				94EC70CB159697330018AD05 /* NSData+SRB64Additions.m in Sources */,
 				94EC70CC159697330018AD05 /* SRWebSocket.m in Sources */,
 				94EC70D0159699870018AD05 /* NSDate+DateAdditions.m in Sources */,
+				475EB20E1596A30400D70102 /* SingleGameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
