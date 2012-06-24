@@ -39,7 +39,10 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_handleLoginSuccess:) name:LoginSuccessNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_handleSportSelected:) name:SportSelectedNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_handleGamesDownloaded:) name:GamesDownloadedNotification object:nil];
-
+	
+	//self.mainViewController = [[MainViewController alloc] initWithNibName:nil bundle:nil];
+	//[self.window addSubview:self.mainViewController.view];
+	
 	self.dataRequester = [[DataRequester alloc] init];
 	[self.dataRequester requestGamesData];
 	
@@ -74,14 +77,10 @@
 	self.gamesViewController = [[GamesViewController alloc] initWithNibName:nil bundle:nil];
 	[self.gamesViewController setTitle:@"SportsBard"];
 	[self.gamesViewController setGameData:todaysGames];
-
-  self.mainViewController = [[MainViewController alloc] initWithNibName:nil bundle:nil];
-
-//	self.mainNavController = [[UINavigationController alloc] initWithRootViewController:self.gamesViewController];
-  
-  self.mainNavController = [[UINavigationController alloc] initWithRootViewController:self.mainViewController];
-
-  [self.window addSubview:self.mainViewController.view];
+	
+	self.mainNavController = [[UINavigationController alloc] initWithRootViewController:self.gamesViewController];
+	
+	[self.window addSubview:self.mainNavController.view];
 }
 
 - (NSMutableArray *)gamesFrom:(NSDate *)start until:(NSDate *)end fromData:(NSArray *)games {
