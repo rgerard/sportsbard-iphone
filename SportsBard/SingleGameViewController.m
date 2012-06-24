@@ -93,7 +93,7 @@
 	[data setObject:gameid forKey:@"gameid"];
 	[data setObject:awayteam forKey:@"team"];
 	
-	// Request the games data
+	// Increase the away score
 	[self.socket sendEvent:@"scoreupdate" withData:data];
 }
 
@@ -107,7 +107,7 @@
 	[data setObject:gameid forKey:@"gameid"];
 	[data setObject:hometeam forKey:@"team"];
 	
-	// Request the games data
+	// Increase the home score
 	[self.socket sendEvent:@"scoreupdate" withData:data];
 }
 
@@ -119,7 +119,7 @@
 	NSMutableDictionary *data = [NSMutableDictionary dictionary];
 	[data setObject:gameid forKey:@"gameid"];
 	
-	// Request the games data
+	// Update the inning
 	[self.socket sendEvent:@"inningupdate" withData:data];
 }
 
@@ -135,8 +135,10 @@
 	[data setObject:inning forKey:@"inning"];
 	[data setObject:story forKey:@"story"];	
 	
-	// Request the games data
+	// Send a new story
 	[self.socket sendEvent:@"newstory" withData:data];
+	
+	[self.storyTextField setText:@""];
 }
 
 - (void)socketIO:(SocketIO *)socket didReceiveMessage:(SocketIOPacket *)packet {
@@ -208,13 +210,11 @@
   [self.scrollView setContentOffset:pt animated:YES];
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
+- (void)textFieldDidEndEditing:(UITextField *)textField {
   [self.scrollView setContentOffset:CGPointZero animated:YES];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
   [textField resignFirstResponder];
   return YES;
 }
