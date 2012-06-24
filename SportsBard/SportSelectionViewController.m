@@ -23,7 +23,7 @@ NSString * const SportSelectedNotification = @"SportSelectedNotification";
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-		self.sports = [[NSMutableArray alloc] initWithObjects:@"Baseball", @"Football", @"Tennis", @"Soccer", nil];
+		self.sports = [[NSMutableArray alloc] initWithObjects:@"Football", @"Baseball", @"Tennis", @"Soccer", nil];
     }
     return self;
 }
