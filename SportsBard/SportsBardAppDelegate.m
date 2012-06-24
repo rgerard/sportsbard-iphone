@@ -19,6 +19,7 @@
 @property(strong, nonatomic) SportSelectionViewController *sportSelectionViewController;
 @property(strong, nonatomic) GamesViewController *gamesViewController;
 @property(strong, nonatomic) DataRequester *dataRequester;
+@property(strong, nonatomic) NSMutableArray *todaysGames;
 @end
 
 @implementation SportsBardAppDelegate
@@ -29,6 +30,7 @@
 @synthesize sportSelectionViewController;
 @synthesize gamesViewController;
 @synthesize dataRequester;
+@synthesize todaysGames;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -58,6 +60,7 @@
 	
 	self.gamesViewController = [[GamesViewController alloc] initWithNibName:nil bundle:nil];
 	[self.gamesViewController setTitle:@"SportsBard"];
+	[self.gamesViewController setGameData:self.todaysGames];
 	
 	self.mainNavController = [[UINavigationController alloc] initWithRootViewController:self.gamesViewController];
 	
@@ -69,17 +72,17 @@
 	
 	NSDate *startOfToday = [[NSDate date] startOfDay];
 	NSDate *endOfToday = [startOfToday dateByAddingTimeInterval:86400];
-	NSMutableArray *todaysGames = [self gamesFrom:startOfToday until:endOfToday fromData:gamesData];
-	
+	self.todaysGames = [self gamesFrom:startOfToday until:endOfToday fromData:gamesData];
+
+	/*
 	self.gamesViewController = [[GamesViewController alloc] initWithNibName:nil bundle:nil];
 	[self.gamesViewController setTitle:@"SportsBard"];
 	[self.gamesViewController setGameData:todaysGames];
-
-  self.mainViewController = [[MainViewController alloc] initWithNibName:nil bundle:nil];
-
-//	self.mainNavController = [[UINavigationController alloc] initWithRootViewController:self.gamesViewController];
-  
-  self.mainNavController = [[UINavigationController alloc] initWithRootViewController:self.mainViewController];
+	self.mainNavController = [[UINavigationController alloc] initWithRootViewController:self.gamesViewController];
+	 */
+	
+	self.mainViewController = [[MainViewController alloc] initWithNibName:nil bundle:nil];
+	self.mainNavController = [[UINavigationController alloc] initWithRootViewController:self.mainViewController];
 
   [self.window addSubview:self.mainViewController.view];
 }
