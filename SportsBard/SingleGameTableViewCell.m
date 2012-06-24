@@ -8,6 +8,7 @@
 
 #import "SingleGameTableViewCell.h"
 #import "SBJson.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface SingleGameTableViewCell ()
 @property(strong, nonatomic) UIView *backView;
@@ -27,13 +28,14 @@
         // Initialization code
 		self.backView = [[UIView alloc] initWithFrame:CGRectZero];
 		[self.backView setBackgroundColor:[UIColor whiteColor]];
-
+		self.backView.layer.cornerRadius = 5.0;
+		
 		self.story = [[UITextView alloc] initWithFrame:CGRectZero];
-		[self.story setBackgroundColor:[UIColor redColor]];
+		[self.story setBackgroundColor:[UIColor clearColor]];
 		[self.backView addSubview:self.story];
 		
 		self.likes = [[UILabel alloc] initWithFrame:CGRectZero];
-		[self.likes setBackgroundColor:[UIColor blueColor]];
+		[self.likes setBackgroundColor:[UIColor clearColor]];
 		[self.likes setFont:[UIFont systemFontOfSize:12.0]];
 		[self.likes setTextAlignment:UITextAlignmentRight];
 		[self.backView addSubview:self.likes];
@@ -60,8 +62,8 @@
     CGRect contentBounds = [self.contentView bounds];
     
     [self.backView setFrame:CGRectMake(contentBounds.origin.x + 10, contentBounds.origin.y, 300, 80)];
-	[self.story setFrame:CGRectMake(contentBounds.origin.x, contentBounds.origin.y, 250, 60)];
-    [self.likes setFrame:CGRectMake(contentBounds.origin.x + 150, contentBounds.origin.y + 60, 100, 20)];
+	[self.story setFrame:CGRectMake(contentBounds.origin.x + 5, contentBounds.origin.y + 5, 245, 55)];
+    [self.likes setFrame:CGRectMake(contentBounds.origin.x + 140, contentBounds.origin.y + 60, 100, 20)];
 	
     [self.like setFrame:CGRectMake(contentBounds.origin.x + 263, contentBounds.origin.y + 5, 25, 25)];
 	[self.hide setFrame:CGRectMake(contentBounds.origin.x + 260, contentBounds.origin.y + 40, 30, 30)];

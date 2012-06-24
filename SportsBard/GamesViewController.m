@@ -88,7 +88,17 @@
     [super viewDidLoad];
 	
 	self.socket = [[SocketIO alloc] initWithDelegate:self];
-	[self.socket connectToHost:@"localhost" onPort:8080];
+	
+#ifdef DEBUG
+	#if TARGET_IPHONE_SIMULATOR
+		[self.socket connectToHost:@"localhost" onPort:8080];
+	#else
+		[self.socket connectToHost:@"sportsbard.jit.su" onPort:80];
+	#endif
+#else
+	[self.socket connectToHost:@"sportsbard.jit.su" onPort:80];
+#endif
+	
 }
 
 - (void)socketIO:(SocketIO *)socket didReceiveMessage:(SocketIOPacket *)packet {

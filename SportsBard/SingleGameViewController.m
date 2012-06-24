@@ -46,7 +46,16 @@
     [super viewDidLoad];
 	
 	self.socket = [[SocketIO alloc] initWithDelegate:self];
-	[self.socket connectToHost:@"localhost" onPort:8080];
+
+#ifdef DEBUG
+	#if TARGET_IPHONE_SIMULATOR
+		[self.socket connectToHost:@"localhost" onPort:8080];
+	#else
+		[self.socket connectToHost:@"sportsbard.jit.su" onPort:80];
+	#endif
+#else
+	[self.socket connectToHost:@"sportsbard.jit.su" onPort:80];
+#endif
 	
 	// Request the games data
 	NSString *gameid = [self.gameData objectForKey:@"gameid"];	
@@ -251,7 +260,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80.0;
+    return 85.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
