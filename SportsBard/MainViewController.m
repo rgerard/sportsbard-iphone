@@ -29,6 +29,10 @@ NSString * const LoginSuccessNotification = @"LoginSuccessNotification";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+	
+	// This notification is posted when the accounts managed by this account store changed in the database.
+    // When you receive this notification, you should refetch all account objects.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(canTweetStatus) name:ACAccountStoreDidChangeNotification object:nil];
 }
 
 - (void)viewDidUnload {
@@ -42,8 +46,35 @@ NSString * const LoginSuccessNotification = @"LoginSuccessNotification";
 }
 
 -(IBAction)loginClick:(id)sender {
-    NSNotification *notification = [NSNotification notificationWithName:LoginSuccessNotification object:nil];
-    [[NSNotificationCenter defaultCenter] performSelector:@selector(postNotification:) onThread:[NSThread mainThread] withObject:notification waitUntilDone:NO];
+    // Create an account store object.
+    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+    
+    // Create an account type that ensures Twitter accounts are retrieved.
+    ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    
+    // Request access from the user to use their Twitter accounts.
+    [accountStore requestAccessToAccountsWithType:accountType withCompletionHandler:^(BOOL granted, NSError *error) {
+        if(granted) {
+            // Get the list of Twitter accounts.
+            NSArray *accountsArray = [accountStore accountsWithAccountType:accountType];
+            
+            // For the sake of brevity, we'll assume there is only one Twitter account present.
+            // You would ideally ask the user which account they want to tweet from, if there is more than one Twitter account present.
+            if ([accountsArray count] > 0) {
+                // Grab the initial Twitter account to tweet from.
+                ACAccount *twitterAccount = [accountsArray objectAtIndex:0];
+				NSString *username = [twitterAccount username];
+				NSLog(@"username is %@", username);
+				
+				if(username && ![username isEqualToString:@""]) {
+					[[NSUserDefaults standardUserDefaults] setObject:username forKey:@"username"];
+				}
+            }
+			
+			NSNotification *notification = [NSNotification notificationWithName:LoginSuccessNotification object:nil];
+			[[NSNotificationCenter defaultCenter] performSelector:@selector(postNotification:) onThread:[NSThread mainThread] withObject:notification waitUntilDone:NO];
+        }
+    }];
 }
 
 @end

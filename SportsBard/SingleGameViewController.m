@@ -107,8 +107,12 @@
 			inning = [NSNumber numberWithInt:(current/2)];
 		}
 		
-		NSString *ordinalNum = [self addSuffixToNumber:[inning integerValue]];
-		[self.inningsButton setTitle:[NSString stringWithFormat:@"%@ %@", direction, ordinalNum] forState:UIControlStateNormal];	
+		if([inning integerValue] <= 9) {
+			NSString *ordinalNum = [self addSuffixToNumber:[inning integerValue]];
+			[self.inningsButton setTitle:[NSString stringWithFormat:@"%@ %@", direction, ordinalNum] forState:UIControlStateNormal];	
+		} else {
+			[self.inningsButton setTitle:@"Finished" forState:UIControlStateNormal];	
+		}
 	}
 	
 	[self.homeTeamButton setTitle:homeTeamScore forState:UIControlStateNormal];
@@ -169,6 +173,11 @@
 	[data setObject:gameid forKey:@"gameid"];
 	[data setObject:inning forKey:@"inning"];
 	[data setObject:story forKey:@"story"];	
+	
+	NSString *username = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
+	if(username) {
+		[data setObject:username forKey:@"user"];			
+	}
 	
 	// Send a new story
 	[self.socket sendEvent:@"newstory" withData:data];

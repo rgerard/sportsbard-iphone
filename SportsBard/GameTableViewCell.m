@@ -165,8 +165,12 @@
 				inning = [NSNumber numberWithInt:(current/2)];
 			}
 			
-			NSString *ordinalNum = [self addSuffixToNumber:[inning integerValue]];
-			[self.cellHeaderInning setText:[NSString stringWithFormat:@"%@ %@", direction, ordinalNum]];
+			if([inning integerValue] <= 9) {
+				NSString *ordinalNum = [self addSuffixToNumber:[inning integerValue]];
+				[self.cellHeaderInning setText:[NSString stringWithFormat:@"%@ %@", direction, ordinalNum]];
+			} else {
+				[self.cellHeaderInning setText:@"Finished"];
+			}
 		}
 		
 		NSString *headerScore = [NSString stringWithFormat:@"%@ %@, %@ %@", [awayteam uppercaseString], awayscore, [hometeam uppercaseString], homescore];
