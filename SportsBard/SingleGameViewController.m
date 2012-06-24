@@ -9,10 +9,16 @@
 #import "SingleGameViewController.h"
 
 @interface SingleGameViewController ()
+@property (strong, nonatomic) IBOutlet UIButton *inningsButton;
+@property (strong, nonatomic) IBOutlet UIButton *homeTeamButton;
+@property (strong, nonatomic) IBOutlet UIButton *awayTeamButton;
+
 
 @end
 
 @implementation SingleGameViewController
+
+@synthesize inningsButton, homeTeamButton, awayTeamButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +33,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+  self.inningsButton.titleLabel.text = @"9up";
+  self.homeTeamButton.titleLabel.text = @"ATL 4";
+  self.awayTeamButton.titleLabel.text = @"SEA 2";  
 }
 
 - (void)viewDidUnload

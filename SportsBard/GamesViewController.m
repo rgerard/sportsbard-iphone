@@ -8,6 +8,7 @@
 
 #import "GamesViewController.h"
 #import "GameTableViewCell.h"
+#import "SingleGameViewController.h"
 
 @interface GamesViewController ()
 @property(strong, nonatomic) UILabel *dateLbl;
@@ -82,6 +83,12 @@
 	[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  SingleGameViewController *singleGameVC = [[SingleGameViewController alloc] initWithNibName:@"SingleGameViewController" bundle:nil];
+  [self.navigationController pushViewController:singleGameVC animated:YES];
 }
 
 @end

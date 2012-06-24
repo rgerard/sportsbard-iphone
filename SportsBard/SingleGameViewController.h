@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SingleGameViewController : UIViewController
+@interface SingleGameViewController : UIViewController 
 
 @end
