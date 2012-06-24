@@ -8,6 +8,7 @@
 
 #import "SingleGameViewController.h"
 #import "SBJson.h"
+#import "MBProgressHUD.h"
 
 @interface SingleGameViewController ()
 @property (strong, nonatomic) SocketIO *socket;
@@ -62,6 +63,9 @@
 	[self.socket sendEvent:@"getstories" withData:[NSDictionary dictionaryWithObject:gameid forKey:@"gameid"]];
 	
 	[self _updateGameData];
+	
+	MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    progress.labelText = @"Loading Story...";
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -190,14 +194,19 @@
 
 - (void)socketIOHandshakeFailed:(SocketIO *)socket {
 	NSLog(@"Handshake failed!");
+	
+	[MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 }
 
 - (void)socketIO:(SocketIO *)socket didReceiveMessage:(SocketIOPacket *)packet {
     NSLog(@"didReceiveMessage() >>> data: %@", packet.data);
+	
+	[MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 }
 
 - (void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet {
 	NSLog(@"didReceiveEvent() >>> data: %@", packet.data);
+	[MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 	
 	SBJsonParser *parser = [[SBJsonParser alloc] init];
 	NSDictionary *eventData = [parser objectWithString:packet.data];

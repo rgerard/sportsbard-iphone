@@ -107,6 +107,7 @@
 		94EC7161159704D60018AD05 /* thumbsup.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EC7160159704D60018AD05 /* thumbsup.png */; };
 		94EC7163159705C80018AD05 /* close.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 94EC7162159705C70018AD05 /* close.jpeg */; };
 		94EC7175159764470018AD05 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC7174159764460018AD05 /* QuartzCore.framework */; };
+		94EC71B0159790BF0018AD05 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC7195159790BF0018AD05 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -256,6 +257,8 @@
 		94EC7160159704D60018AD05 /* thumbsup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thumbsup.png; path = Resources/thumbsup.png; sourceTree = "<group>"; };
 		94EC7162159705C70018AD05 /* close.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = close.jpeg; path = Resources/close.jpeg; sourceTree = "<group>"; };
 		94EC7174159764460018AD05 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		94EC7194159790BF0018AD05 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		94EC7195159790BF0018AD05 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,6 +381,7 @@
 		94EC6C9C1596911C0018AD05 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				94EC717A159790BF0018AD05 /* MBProgressHUD */,
 				94EC7082159697330018AD05 /* socket.IO-objc */,
 				94EC6C9D1596912A0018AD05 /* ASIHTTPRequest */,
 				94EC6CB21596912A0018AD05 /* Reachability */,
@@ -628,6 +632,16 @@
 			path = Resources/logos;
 			sourceTree = "<group>";
 		};
+		94EC717A159790BF0018AD05 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				94EC7194159790BF0018AD05 /* MBProgressHUD.h */,
+				94EC7195159790BF0018AD05 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			path = External/MBProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -779,6 +793,7 @@
 				475EB20E1596A30400D70102 /* SingleGameViewController.m in Sources */,
 				94EC70DD1596BA8D0018AD05 /* AddGameViewController.m in Sources */,
 				94EC71201596D1860018AD05 /* SingleGameTableViewCell.m in Sources */,
+				94EC71B0159790BF0018AD05 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
