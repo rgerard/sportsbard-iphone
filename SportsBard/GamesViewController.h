@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SocketIO.h"
 
-@interface GamesViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface GamesViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, SocketIODelegate>
 @property(strong, nonatomic) NSMutableArray *gameData;
 @end

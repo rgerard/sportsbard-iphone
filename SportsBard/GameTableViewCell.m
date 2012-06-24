@@ -102,7 +102,7 @@
 	NSString *awayscore = [gameData objectForKey:@"awayscore"];
 	NSString *homescore = [gameData objectForKey:@"homescore"];
 	
-	NSString *headerScore = [NSString stringWithFormat:@"%@ %@, %@ %@", awayteam, awayscore, hometeam, homescore];
+	NSString *headerScore = [NSString stringWithFormat:@"%@ %@, %@ %@", [awayteam uppercaseString], awayscore, [hometeam uppercaseString], homescore];
 	[self.cellHeaderScores setText:headerScore];
 	
 	// Formatter to convert date string to NSDate object
@@ -117,8 +117,11 @@
 	NSDateFormatter *cellHeaderDateFormatter = [[NSDateFormatter alloc] init];
 	[cellHeaderDateFormatter setDateFormat:@"K:mm a, z"];
 	
+	// -1 means it hasn't started, 100 means it's over
 	if([inning integerValue] == -1) {
 		[self.cellHeaderInning setText:[cellHeaderDateFormatter stringFromDate:actualDate]];
+	} else if([inning integerValue] == 100) {
+		[self.cellHeaderInning setText:@""];
 	} else {
 		[self.cellHeaderInning setText:[inning stringValue]];
 	}

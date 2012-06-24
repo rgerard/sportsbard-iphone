@@ -9,10 +9,12 @@
 #import "GamesViewController.h"
 #import "GameTableViewCell.h"
 #import "SingleGameViewController.h"
+#import "SBJson.h"
 
 @interface GamesViewController ()
 @property(strong, nonatomic) UILabel *dateLbl;
 @property(strong, nonatomic) UITableView *tableView;
+@property(strong, nonatomic) SocketIO *socket;
 @end
 
 @implementation GamesViewController
@@ -20,6 +22,7 @@
 @synthesize dateLbl;
 @synthesize tableView;
 @synthesize gameData;
+@synthesize socket;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -55,6 +58,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	self.socket = [[SocketIO alloc] initWithDelegate:self];
+	[self.socket connectToHost:@"localhost" onPort:8080];
+}
+
+- (void)socketIO:(SocketIO *)socket didReceiveMessage:(SocketIOPacket *)packet {
+    NSLog(@"didReceiveMessage() >>> data: %@", packet.data);
+}
+
+- (void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet {
+	NSLog(@"didReceiveEvent() >>> data: %@", packet.data);
+	
+	SBJsonParser *parser = [[SBJsonParser alloc] init];
+	NSDictionary *eventData = [parser objectWithString:packet.data];
+	
+	if(eventData && [[eventData objectForKey:@"name"] isEqualToString:@"scoreupdated"]) {
+		NSArray *dataArr = [eventData objectForKey:@"args"];
+		NSDictionary *dataDict = [dataArr objectAtIndex:0];
+		
+		NSLog(@"data is %@", dataDict);
+		
+		// Find the game to update
+		NSString *gameid = [dataDict objectForKey:@"gameid"];
+		NSInteger foundGame = -1;
+		for(int i=0; i < [self.gameData count]; i++) {
+			NSDictionary *game = [self.gameData objectAtIndex:i];
+			if([[game objectForKey:@"gameid"] isEqualToString:gameid]) {
+				foundGame = i;
+				break;
+			}
+		}
+		
+		if(foundGame != -1) {
+			[self.gameData replaceObjectAtIndex:foundGame withObject:dataDict];
+			[self.tableView reloadData];
+		}
+	}
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -89,6 +129,17 @@
 {
   SingleGameViewController *singleGameVC = [[SingleGameViewController alloc] initWithNibName:@"SingleGameViewController" bundle:nil];
   [self.navigationController pushViewController:singleGameVC animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSDictionary *singleGame = [self.gameData objectAtIndex:indexPath.row];
+	
+	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	[dict setObject:[singleGame objectForKey:@"gameid"] forKey:@"gameid"];
+	[dict setObject:[singleGame objectForKey:@"awayteam"] forKey:@"team"];
+	[dict setObject:@"3" forKey:@"score"];
+	
+	[self.socket sendEvent:@"scoreupdate" withData:dict];
 }
 
 @end
