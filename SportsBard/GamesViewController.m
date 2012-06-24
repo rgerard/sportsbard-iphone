@@ -10,6 +10,7 @@
 #import "GameTableViewCell.h"
 #import "SingleGameViewController.h"
 #import "SBJson.h"
+#import "AddGameViewController.h"
 
 @interface GamesViewController ()
 @property(strong, nonatomic) UILabel *dateLbl;
@@ -52,6 +53,19 @@
 	[self.tableView setDelegate:self];
 	[self.tableView setDataSource:self];
 	[view addSubview:self.tableView];
+	
+	// Add the invite image inside of a larger view that will push the image a little more to the right
+    UIView *inviteContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 35, 25)];
+    [inviteContainer setBackgroundColor:[UIColor clearColor]];
+	
+	UIButton *inviteImage = [UIButton buttonWithType:UIButtonTypeCustom];
+    [inviteImage setFrame:CGRectMake(10, 0, 25, 25)];
+    [inviteImage setImage:[UIImage imageNamed:@"invite_button.png"] forState:UIControlStateNormal];
+    [inviteImage addTarget:self action:@selector(_addGamePressed:) forControlEvents:UIControlEventTouchUpInside];
+	[inviteContainer addSubview:inviteImage];
+	
+    UIBarButtonItem *inviteBarBtn = [[UIBarButtonItem alloc] initWithCustomView:inviteContainer];
+    self.navigationItem.leftBarButtonItem = inviteBarBtn; 
 	
 	self.view = view;
 }
@@ -145,5 +159,12 @@
 	[self.socket sendEvent:@"scoreupdate" withData:dict];
 }
  */
+
+- (void)_addGamePressed:(id)sender {
+	NSLog(@"Add game");
+	
+	AddGameViewController *addGame = [[AddGameViewController alloc] initWithNibName:nil bundle:nil];
+	[self.navigationController pushViewController:addGame animated:YES];
+}
 
 @end
