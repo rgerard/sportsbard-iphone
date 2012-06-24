@@ -125,12 +125,15 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  SingleGameViewController *singleGameVC = [[SingleGameViewController alloc] initWithNibName:@"SingleGameViewController" bundle:nil];
-  [self.navigationController pushViewController:singleGameVC animated:YES];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSDictionary *singleGame = [self.gameData objectAtIndex:indexPath.row];
+	SingleGameViewController *singleGameVC = [[SingleGameViewController alloc] initWithNibName:@"SingleGameViewController" bundle:nil];
+	[singleGameVC setGameData:singleGame];
+	
+	[self.navigationController pushViewController:singleGameVC animated:YES];
 }
 
+/*
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSDictionary *singleGame = [self.gameData objectAtIndex:indexPath.row];
 	
@@ -141,5 +144,6 @@
 	
 	[self.socket sendEvent:@"scoreupdate" withData:dict];
 }
+ */
 
 @end

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SingleGameViewController : UIViewController 
-
+@property(strong, nonatomic) NSDictionary *gameData;
 @end

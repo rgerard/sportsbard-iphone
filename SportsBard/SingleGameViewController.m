@@ -12,13 +12,11 @@
 @property (strong, nonatomic) IBOutlet UIButton *inningsButton;
 @property (strong, nonatomic) IBOutlet UIButton *homeTeamButton;
 @property (strong, nonatomic) IBOutlet UIButton *awayTeamButton;
-
-
 @end
 
 @implementation SingleGameViewController
 
-@synthesize inningsButton, homeTeamButton, awayTeamButton;
+@synthesize inningsButton, homeTeamButton, awayTeamButton, gameData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
