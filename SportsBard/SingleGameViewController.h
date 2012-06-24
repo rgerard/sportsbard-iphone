@@ -9,13 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SocketIO.h"
 
-@interface SingleGameViewController : UIViewController<SocketIODelegate>
+@interface SingleGameViewController : UIViewController<SocketIODelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 @property(strong, nonatomic) NSDictionary *gameData;
-@property (strong, nonatomic) IBOutlet UIButton *inningsButton;
-@property (strong, nonatomic) IBOutlet UIButton *homeTeamButton;
-@property (strong, nonatomic) IBOutlet UIButton *awayTeamButton;
 
-- (IBAction)clickAwayScore:(id)sender;
-- (IBAction)clickHomeScore:(id)sender;
-- (IBAction)clickInning:(id)sender;
 @end

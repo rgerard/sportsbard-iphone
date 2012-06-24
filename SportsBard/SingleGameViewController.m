@@ -11,11 +11,23 @@
 
 @interface SingleGameViewController ()
 @property(strong, nonatomic) SocketIO *socket;
+@property (strong, nonatomic) IBOutlet UIButton *inningsButton;
+@property (strong, nonatomic) IBOutlet UIButton *homeTeamButton;
+@property (strong, nonatomic) IBOutlet UIButton *awayTeamButton;
+@property (strong, nonatomic) IBOutlet UITableView *gameStoryFeed;
+@property (strong, nonatomic) IBOutlet UITextField *storyTextField;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+
+- (IBAction)clickAwayScore:(id)sender;
+- (IBAction)clickHomeScore:(id)sender;
+- (IBAction)clickInning:(id)sender;
+- (IBAction)clickAddStory:(id)sender;
 @end
 
 @implementation SingleGameViewController
 
 @synthesize inningsButton, homeTeamButton, awayTeamButton, gameData, socket;
+@synthesize gameStoryFeed, storyTextField, scrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -67,6 +79,10 @@
 	NSLog(@"Increase inning");
 }
 
+- (IBAction)clickAddStory:(id)sender {
+  [self.storyTextField resignFirstResponder];
+}
+
 - (void)socketIO:(SocketIO *)socket didReceiveMessage:(SocketIOPacket *)packet {
     NSLog(@"didReceiveMessage() >>> data: %@", packet.data);
 }
@@ -85,6 +101,39 @@
 		self.gameData = dataDict;
 		[self.view setNeedsLayout];
 	}
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  static NSString *CellIdentifier = @"Cell";
+  UITableViewCell *cell = [self.gameStoryFeed dequeueReusableCellWithIdentifier:CellIdentifier];
+  if (cell == nil) {
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+  }
+	[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+  
+  return cell;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+//  CGRect rc = [textField bounds];
+//  UIScrollView *sv = self.scrollView;
+//  rc = [textField convertRect:rc toView:sv];
+  CGPoint pt = textField.bounds.origin ;
+  pt.x = 0 ;
+  pt.y = 210;
+  [self.scrollView setContentOffset:pt animated:YES];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+  [self.scrollView setContentOffset:CGPointZero animated:YES];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+  [textField resignFirstResponder];
+  return YES;
 }
 
 @end
