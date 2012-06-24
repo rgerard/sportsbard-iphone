@@ -7,6 +7,7 @@
 //
 
 #import "GameTableViewCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface GameTableViewCell ()
 @property(strong, nonatomic) UIView *cellHeader;
@@ -41,7 +42,17 @@
 		self.gameData = [NSDictionary dictionary];
 		
 		self.cellHeader = [[UIView alloc] initWithFrame:CGRectZero];
-		[self.cellHeader setBackgroundColor:[UIColor blueColor]];
+		[self.cellHeader setBackgroundColor:[UIColor clearColor]];
+		[self.cellHeader setFrame:CGRectMake(20, 10, 280, 40)];
+		
+		// Set a gradient
+		UIColor *lowColor = [UIColor colorWithRed:0.0/255.0 green:129.0/255.0 blue:69.0/255.0 alpha:1.0];
+		UIColor *highColor = [UIColor colorWithRed:120.0/255.0 green:195.0/255.0 blue:114.0/255.0 alpha:1.0];
+		
+		CAGradientLayer *gradient = [CAGradientLayer layer];
+		gradient.frame = self.cellHeader.bounds;
+		gradient.colors = [NSArray arrayWithObjects:(id)[highColor CGColor], (id)[lowColor CGColor], nil];
+		[self.cellHeader.layer insertSublayer:gradient atIndex:0];
 		
 		self.cellHeaderInning = [[UILabel alloc] initWithFrame:CGRectZero];
 		[self.cellHeaderInning setText:@"9up"];

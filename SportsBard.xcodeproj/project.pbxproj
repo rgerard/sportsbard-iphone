@@ -106,6 +106,7 @@
 		94EC715F1596FB580018AD05 /* indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EC715E1596FB580018AD05 /* indicator.png */; };
 		94EC7161159704D60018AD05 /* thumbsup.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EC7160159704D60018AD05 /* thumbsup.png */; };
 		94EC7163159705C80018AD05 /* close.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 94EC7162159705C70018AD05 /* close.jpeg */; };
+		94EC7175159764470018AD05 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC7174159764460018AD05 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -254,6 +255,7 @@
 		94EC715E1596FB580018AD05 /* indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = indicator.png; path = Resources/indicator.png; sourceTree = "<group>"; };
 		94EC7160159704D60018AD05 /* thumbsup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thumbsup.png; path = Resources/thumbsup.png; sourceTree = "<group>"; };
 		94EC7162159705C70018AD05 /* close.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = close.jpeg; path = Resources/close.jpeg; sourceTree = "<group>"; };
+		94EC7174159764460018AD05 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94EC7175159764470018AD05 /* QuartzCore.framework in Frameworks */,
 				94EC7081159695250018AD05 /* Security.framework in Frameworks */,
 				94EC707F159695190018AD05 /* libicucore.dylib in Frameworks */,
 				94EC6CC5159691E30018AD05 /* libz.dylib in Frameworks */,
@@ -314,6 +317,7 @@
 		94EC6C69159666080018AD05 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				94EC7174159764460018AD05 /* QuartzCore.framework */,
 				94EC7080159695240018AD05 /* Security.framework */,
 				94EC707E159695190018AD05 /* libicucore.dylib */,
 				94EC6CC4159691E30018AD05 /* libz.dylib */,
