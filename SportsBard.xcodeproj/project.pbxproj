@@ -34,73 +34,9 @@
 		94EC6CC31596919C0018AD05 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC6CC21596919C0018AD05 /* MobileCoreServices.framework */; };
 		94EC6CC5159691E30018AD05 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC6CC4159691E30018AD05 /* libz.dylib */; };
 		94EC6CC8159692190018AD05 /* DataRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6CC7159692190018AD05 /* DataRequester.m */; };
-		94EC6EF6159694B30018AD05 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6CCA159694B20018AD05 /* .gitignore */; };
-		94EC6EF7159694B30018AD05 /* .gitmodules in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6CCB159694B20018AD05 /* .gitmodules */; };
-		94EC6EF8159694B30018AD05 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6CCC159694B20018AD05 /* LICENSE */; };
-		94EC6EF9159694B30018AD05 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6CCD159694B20018AD05 /* README.md */; };
-		94EC6EFA159694B30018AD05 /* SocketIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6CCF159694B20018AD05 /* SocketIO.m */; };
-		94EC6F01159694B30018AD05 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6CE0159694B20018AD05 /* .gitignore */; };
-		94EC6F02159694B30018AD05 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6CE2159694B20018AD05 /* .gitignore */; };
-		94EC6F03159694B30018AD05 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6CE5159694B20018AD05 /* NSObject+SBJson.m */; };
-		94EC6F04159694B30018AD05 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6CE8159694B20018AD05 /* SBJsonParser.m */; };
-		94EC6F05159694B30018AD05 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6CEA159694B20018AD05 /* SBJsonStreamParser.m */; };
-		94EC6F06159694B30018AD05 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6CEC159694B20018AD05 /* SBJsonStreamParserAccumulator.m */; };
-		94EC6F07159694B30018AD05 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6CEE159694B20018AD05 /* SBJsonStreamParserAdapter.m */; };
-		94EC6F08159694B30018AD05 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6CF0159694B20018AD05 /* SBJsonStreamParserState.m */; };
-		94EC6F09159694B30018AD05 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6CF2159694B20018AD05 /* SBJsonStreamWriter.m */; };
-		94EC6F0A159694B30018AD05 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6CF4159694B20018AD05 /* SBJsonStreamWriterAccumulator.m */; };
-		94EC6F0B159694B30018AD05 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6CF6159694B20018AD05 /* SBJsonStreamWriterState.m */; };
-		94EC6F0C159694B30018AD05 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6CF8159694B20018AD05 /* SBJsonTokeniser.m */; };
-		94EC6F0D159694B30018AD05 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6CFA159694B20018AD05 /* SBJsonUTF8Stream.m */; };
-		94EC6F0E159694B30018AD05 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6CFC159694B20018AD05 /* SBJsonWriter.m */; };
-		94EC6F27159694B30018AD05 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6D2D159694B20018AD05 /* InfoPlist.strings */; };
-		94EC6F28159694B30018AD05 /* SBJson-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6D2F159694B20018AD05 /* SBJson-Info.plist */; };
-		94EC7037159694B40018AD05 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6E9D159694B20018AD05 /* .gitignore */; };
-		94EC7038159694B40018AD05 /* .gitmodules in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6E9E159694B20018AD05 /* .gitmodules */; };
-		94EC7039159694B40018AD05 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6EA1159694B20018AD05 /* LICENSE.txt */; };
-		94EC703A159694B40018AD05 /* virtualenv.py in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6EA2159694B20018AD05 /* virtualenv.py */; };
-		94EC703B159694B40018AD05 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6EA3159694B20018AD05 /* LICENSE */; };
-		94EC703C159694B40018AD05 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6EA4159694B20018AD05 /* Makefile */; };
-		94EC703D159694B40018AD05 /* README.rst in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6EA6159694B20018AD05 /* README.rst */; };
-		94EC703E159694B40018AD05 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6EA8159694B20018AD05 /* base64.c */; };
-		94EC703F159694B40018AD05 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6EAB159694B20018AD05 /* NSData+SRB64Additions.m */; };
-		94EC7040159694B40018AD05 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6EAE159694B20018AD05 /* SRWebSocket.m */; };
-		94EC7041159694B40018AD05 /* SocketRocket.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6EAF159694B20018AD05 /* SocketRocket.podspec */; };
-		94EC7042159694B40018AD05 /* SocketRocketOSX-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6EB4159694B20018AD05 /* SocketRocketOSX-Info.plist */; };
 		94EC707F159695190018AD05 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC707E159695190018AD05 /* libicucore.dylib */; };
 		94EC7081159695250018AD05 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC7080159695240018AD05 /* Security.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		94EC706F159694B40018AD05 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 94EC6EB0159694B20018AD05 /* SocketRocket.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F6B2082D1450F597009315AF;
-			remoteInfo = SocketRocket;
-		};
-		94EC7071159694B40018AD05 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 94EC6EB0159694B20018AD05 /* SocketRocket.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F668C880153E91210044DBAC;
-			remoteInfo = SocketRocketOSX;
-		};
-		94EC7073159694B40018AD05 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 94EC6EB0159694B20018AD05 /* SocketRocket.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F6BDA802145900D200FE3253;
-			remoteInfo = SRWebSocketTests;
-		};
-		94EC7075159694B40018AD05 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 94EC6EB0159694B20018AD05 /* SocketRocket.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F62417E314D52F3C003CE997;
-			remoteInfo = TestChat;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		94EC6C66159666080018AD05 /* SportsBard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsBard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,60 +88,6 @@
 		94EC6CC4159691E30018AD05 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		94EC6CC6159692190018AD05 /* DataRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataRequester.h; sourceTree = "<group>"; };
 		94EC6CC7159692190018AD05 /* DataRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataRequester.m; sourceTree = "<group>"; };
-		94EC6CCA159694B20018AD05 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		94EC6CCB159694B20018AD05 /* .gitmodules */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitmodules; sourceTree = "<group>"; };
-		94EC6CCC159694B20018AD05 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		94EC6CCD159694B20018AD05 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		94EC6CCE159694B20018AD05 /* SocketIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIO.h; sourceTree = "<group>"; };
-		94EC6CCF159694B20018AD05 /* SocketIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIO.m; sourceTree = "<group>"; };
-		94EC6CE0159694B20018AD05 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		94EC6CE2159694B20018AD05 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		94EC6CE4159694B20018AD05 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
-		94EC6CE5159694B20018AD05 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
-		94EC6CE6159694B20018AD05 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
-		94EC6CE7159694B20018AD05 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		94EC6CE8159694B20018AD05 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
-		94EC6CE9159694B20018AD05 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
-		94EC6CEA159694B20018AD05 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
-		94EC6CEB159694B20018AD05 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
-		94EC6CEC159694B20018AD05 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
-		94EC6CED159694B20018AD05 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
-		94EC6CEE159694B20018AD05 /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
-		94EC6CEF159694B20018AD05 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
-		94EC6CF0159694B20018AD05 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
-		94EC6CF1159694B20018AD05 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
-		94EC6CF2159694B20018AD05 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
-		94EC6CF3159694B20018AD05 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
-		94EC6CF4159694B20018AD05 /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
-		94EC6CF5159694B20018AD05 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
-		94EC6CF6159694B20018AD05 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
-		94EC6CF7159694B20018AD05 /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
-		94EC6CF8159694B20018AD05 /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
-		94EC6CF9159694B20018AD05 /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
-		94EC6CFA159694B20018AD05 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
-		94EC6CFB159694B20018AD05 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
-		94EC6CFC159694B20018AD05 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		94EC6D2E159694B20018AD05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		94EC6D2F159694B20018AD05 /* SBJson-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SBJson-Info.plist"; sourceTree = "<group>"; };
-		94EC6D30159694B20018AD05 /* SBJson-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SBJson-Prefix.pch"; sourceTree = "<group>"; };
-		94EC6D32159694B20018AD05 /* sbjson-ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sbjson-ios-Prefix.pch"; sourceTree = "<group>"; };
-		94EC6E9D159694B20018AD05 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		94EC6E9E159694B20018AD05 /* .gitmodules */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitmodules; sourceTree = "<group>"; };
-		94EC6EA1159694B20018AD05 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		94EC6EA2159694B20018AD05 /* virtualenv.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = virtualenv.py; sourceTree = "<group>"; };
-		94EC6EA3159694B20018AD05 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		94EC6EA4159694B20018AD05 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		94EC6EA6159694B20018AD05 /* README.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.rst; sourceTree = "<group>"; };
-		94EC6EA8159694B20018AD05 /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
-		94EC6EA9159694B20018AD05 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
-		94EC6EAA159694B20018AD05 /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SRB64Additions.h"; sourceTree = "<group>"; };
-		94EC6EAB159694B20018AD05 /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SRB64Additions.m"; sourceTree = "<group>"; };
-		94EC6EAC159694B20018AD05 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
-		94EC6EAD159694B20018AD05 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
-		94EC6EAE159694B20018AD05 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
-		94EC6EAF159694B20018AD05 /* SocketRocket.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SocketRocket.podspec; sourceTree = "<group>"; };
-		94EC6EB0159694B20018AD05 /* SocketRocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SocketRocket.xcodeproj; sourceTree = "<group>"; };
-		94EC6EB4159694B20018AD05 /* SocketRocketOSX-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SocketRocketOSX-Info.plist"; sourceTree = "<group>"; };
 		94EC707E159695190018AD05 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		94EC7080159695240018AD05 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -301,7 +183,6 @@
 		94EC6C9C1596911C0018AD05 /* External */ = {
 			isa = PBXGroup;
 			children = (
-				94EC6CC9159694B20018AD05 /* socket.IO-objc */,
 				94EC6C9D1596912A0018AD05 /* ASIHTTPRequest */,
 				94EC6CB21596912A0018AD05 /* Reachability */,
 			);
@@ -346,167 +227,6 @@
 			path = External/Reachability;
 			sourceTree = "<group>";
 		};
-		94EC6CC9159694B20018AD05 /* socket.IO-objc */ = {
-			isa = PBXGroup;
-			children = (
-				94EC6CCA159694B20018AD05 /* .gitignore */,
-				94EC6CCB159694B20018AD05 /* .gitmodules */,
-				94EC6CCC159694B20018AD05 /* LICENSE */,
-				94EC6CCD159694B20018AD05 /* README.md */,
-				94EC6CCE159694B20018AD05 /* SocketIO.h */,
-				94EC6CCF159694B20018AD05 /* SocketIO.m */,
-				94EC6CDF159694B20018AD05 /* submodules */,
-			);
-			name = "socket.IO-objc";
-			path = "External/socket.IO-objc";
-			sourceTree = "<group>";
-		};
-		94EC6CDF159694B20018AD05 /* submodules */ = {
-			isa = PBXGroup;
-			children = (
-				94EC6CE0159694B20018AD05 /* .gitignore */,
-				94EC6CE1159694B20018AD05 /* json-framework */,
-				94EC6E9C159694B20018AD05 /* socket-rocket */,
-			);
-			path = submodules;
-			sourceTree = "<group>";
-		};
-		94EC6CE1159694B20018AD05 /* json-framework */ = {
-			isa = PBXGroup;
-			children = (
-				94EC6CE2159694B20018AD05 /* .gitignore */,
-				94EC6CE3159694B20018AD05 /* Classes */,
-				94EC6D2C159694B20018AD05 /* SBJson */,
-				94EC6D31159694B20018AD05 /* sbjson-ios */,
-			);
-			path = "json-framework";
-			sourceTree = "<group>";
-		};
-		94EC6CE3159694B20018AD05 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				94EC6CE4159694B20018AD05 /* NSObject+SBJson.h */,
-				94EC6CE5159694B20018AD05 /* NSObject+SBJson.m */,
-				94EC6CE6159694B20018AD05 /* SBJson.h */,
-				94EC6CE7159694B20018AD05 /* SBJsonParser.h */,
-				94EC6CE8159694B20018AD05 /* SBJsonParser.m */,
-				94EC6CE9159694B20018AD05 /* SBJsonStreamParser.h */,
-				94EC6CEA159694B20018AD05 /* SBJsonStreamParser.m */,
-				94EC6CEB159694B20018AD05 /* SBJsonStreamParserAccumulator.h */,
-				94EC6CEC159694B20018AD05 /* SBJsonStreamParserAccumulator.m */,
-				94EC6CED159694B20018AD05 /* SBJsonStreamParserAdapter.h */,
-				94EC6CEE159694B20018AD05 /* SBJsonStreamParserAdapter.m */,
-				94EC6CEF159694B20018AD05 /* SBJsonStreamParserState.h */,
-				94EC6CF0159694B20018AD05 /* SBJsonStreamParserState.m */,
-				94EC6CF1159694B20018AD05 /* SBJsonStreamWriter.h */,
-				94EC6CF2159694B20018AD05 /* SBJsonStreamWriter.m */,
-				94EC6CF3159694B20018AD05 /* SBJsonStreamWriterAccumulator.h */,
-				94EC6CF4159694B20018AD05 /* SBJsonStreamWriterAccumulator.m */,
-				94EC6CF5159694B20018AD05 /* SBJsonStreamWriterState.h */,
-				94EC6CF6159694B20018AD05 /* SBJsonStreamWriterState.m */,
-				94EC6CF7159694B20018AD05 /* SBJsonTokeniser.h */,
-				94EC6CF8159694B20018AD05 /* SBJsonTokeniser.m */,
-				94EC6CF9159694B20018AD05 /* SBJsonUTF8Stream.h */,
-				94EC6CFA159694B20018AD05 /* SBJsonUTF8Stream.m */,
-				94EC6CFB159694B20018AD05 /* SBJsonWriter.h */,
-				94EC6CFC159694B20018AD05 /* SBJsonWriter.m */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		94EC6D2C159694B20018AD05 /* SBJson */ = {
-			isa = PBXGroup;
-			children = (
-				94EC6D2D159694B20018AD05 /* InfoPlist.strings */,
-				94EC6D2F159694B20018AD05 /* SBJson-Info.plist */,
-				94EC6D30159694B20018AD05 /* SBJson-Prefix.pch */,
-			);
-			path = SBJson;
-			sourceTree = "<group>";
-		};
-		94EC6D31159694B20018AD05 /* sbjson-ios */ = {
-			isa = PBXGroup;
-			children = (
-				94EC6D32159694B20018AD05 /* sbjson-ios-Prefix.pch */,
-			);
-			path = "sbjson-ios";
-			sourceTree = "<group>";
-		};
-		94EC6E9C159694B20018AD05 /* socket-rocket */ = {
-			isa = PBXGroup;
-			children = (
-				94EC6E9D159694B20018AD05 /* .gitignore */,
-				94EC6E9E159694B20018AD05 /* .gitmodules */,
-				94EC6E9F159694B20018AD05 /* extern */,
-				94EC6EA3159694B20018AD05 /* LICENSE */,
-				94EC6EA4159694B20018AD05 /* Makefile */,
-				94EC6EA5159694B20018AD05 /* pages */,
-				94EC6EA6159694B20018AD05 /* README.rst */,
-				94EC6EA7159694B20018AD05 /* SocketRocket */,
-				94EC6EAF159694B20018AD05 /* SocketRocket.podspec */,
-				94EC6EB0159694B20018AD05 /* SocketRocket.xcodeproj */,
-				94EC6EB3159694B20018AD05 /* SocketRocketOSX */,
-			);
-			path = "socket-rocket";
-			sourceTree = "<group>";
-		};
-		94EC6E9F159694B20018AD05 /* extern */ = {
-			isa = PBXGroup;
-			children = (
-				94EC6EA0159694B20018AD05 /* virtualenv */,
-			);
-			path = extern;
-			sourceTree = "<group>";
-		};
-		94EC6EA0159694B20018AD05 /* virtualenv */ = {
-			isa = PBXGroup;
-			children = (
-				94EC6EA1159694B20018AD05 /* LICENSE.txt */,
-				94EC6EA2159694B20018AD05 /* virtualenv.py */,
-			);
-			path = virtualenv;
-			sourceTree = "<group>";
-		};
-		94EC6EA5159694B20018AD05 /* pages */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = pages;
-			sourceTree = "<group>";
-		};
-		94EC6EA7159694B20018AD05 /* SocketRocket */ = {
-			isa = PBXGroup;
-			children = (
-				94EC6EA8159694B20018AD05 /* base64.c */,
-				94EC6EA9159694B20018AD05 /* base64.h */,
-				94EC6EAA159694B20018AD05 /* NSData+SRB64Additions.h */,
-				94EC6EAB159694B20018AD05 /* NSData+SRB64Additions.m */,
-				94EC6EAC159694B20018AD05 /* SocketRocket-Prefix.pch */,
-				94EC6EAD159694B20018AD05 /* SRWebSocket.h */,
-				94EC6EAE159694B20018AD05 /* SRWebSocket.m */,
-			);
-			path = SocketRocket;
-			sourceTree = "<group>";
-		};
-		94EC6EB1159694B20018AD05 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				94EC7070159694B40018AD05 /* libSocketRocket.a */,
-				94EC7072159694B40018AD05 /* SocketRocket.framework */,
-				94EC7074159694B40018AD05 /* SRWebSocketTests.octest */,
-				94EC7076159694B40018AD05 /* TestChat.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		94EC6EB3159694B20018AD05 /* SocketRocketOSX */ = {
-			isa = PBXGroup;
-			children = (
-				94EC6EB4159694B20018AD05 /* SocketRocketOSX-Info.plist */,
-			);
-			path = SocketRocketOSX;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -546,49 +266,12 @@
 			mainGroup = 94EC6C5B159666080018AD05;
 			productRefGroup = 94EC6C67159666080018AD05 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 94EC6EB1159694B20018AD05 /* Products */;
-					ProjectRef = 94EC6EB0159694B20018AD05 /* SocketRocket.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				94EC6C65159666080018AD05 /* SportsBard */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		94EC7070159694B40018AD05 /* libSocketRocket.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libSocketRocket.a;
-			remoteRef = 94EC706F159694B40018AD05 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		94EC7072159694B40018AD05 /* SocketRocket.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SocketRocket.framework;
-			remoteRef = 94EC7071159694B40018AD05 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		94EC7074159694B40018AD05 /* SRWebSocketTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SRWebSocketTests.octest;
-			remoteRef = 94EC7073159694B40018AD05 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		94EC7076159694B40018AD05 /* TestChat.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = TestChat.app;
-			remoteRef = 94EC7075159694B40018AD05 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		94EC6C64159666080018AD05 /* Resources */ = {
@@ -599,22 +282,6 @@
 				94EC6C89159666980018AD05 /* MainViewController.xib in Resources */,
 				94EC6C93159673C20018AD05 /* SportSelectionViewController.xib in Resources */,
 				94EC6C98159677310018AD05 /* GamesViewController.xib in Resources */,
-				94EC6EF6159694B30018AD05 /* .gitignore in Resources */,
-				94EC6EF7159694B30018AD05 /* .gitmodules in Resources */,
-				94EC6EF8159694B30018AD05 /* LICENSE in Resources */,
-				94EC6EF9159694B30018AD05 /* README.md in Resources */,
-				94EC6F01159694B30018AD05 /* .gitignore in Resources */,
-				94EC6F02159694B30018AD05 /* .gitignore in Resources */,
-				94EC6F27159694B30018AD05 /* InfoPlist.strings in Resources */,
-				94EC6F28159694B30018AD05 /* SBJson-Info.plist in Resources */,
-				94EC7037159694B40018AD05 /* .gitignore in Resources */,
-				94EC7038159694B40018AD05 /* .gitmodules in Resources */,
-				94EC7039159694B40018AD05 /* LICENSE.txt in Resources */,
-				94EC703A159694B40018AD05 /* virtualenv.py in Resources */,
-				94EC703B159694B40018AD05 /* LICENSE in Resources */,
-				94EC703D159694B40018AD05 /* README.rst in Resources */,
-				94EC7041159694B40018AD05 /* SocketRocket.podspec in Resources */,
-				94EC7042159694B40018AD05 /* SocketRocketOSX-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,23 +308,6 @@
 				94EC6CBC1596912A0018AD05 /* ASINetworkQueue.m in Sources */,
 				94EC6CBD1596912A0018AD05 /* Reachability.m in Sources */,
 				94EC6CC8159692190018AD05 /* DataRequester.m in Sources */,
-				94EC6EFA159694B30018AD05 /* SocketIO.m in Sources */,
-				94EC6F03159694B30018AD05 /* NSObject+SBJson.m in Sources */,
-				94EC6F04159694B30018AD05 /* SBJsonParser.m in Sources */,
-				94EC6F05159694B30018AD05 /* SBJsonStreamParser.m in Sources */,
-				94EC6F06159694B30018AD05 /* SBJsonStreamParserAccumulator.m in Sources */,
-				94EC6F07159694B30018AD05 /* SBJsonStreamParserAdapter.m in Sources */,
-				94EC6F08159694B30018AD05 /* SBJsonStreamParserState.m in Sources */,
-				94EC6F09159694B30018AD05 /* SBJsonStreamWriter.m in Sources */,
-				94EC6F0A159694B30018AD05 /* SBJsonStreamWriterAccumulator.m in Sources */,
-				94EC6F0B159694B30018AD05 /* SBJsonStreamWriterState.m in Sources */,
-				94EC6F0C159694B30018AD05 /* SBJsonTokeniser.m in Sources */,
-				94EC6F0D159694B30018AD05 /* SBJsonUTF8Stream.m in Sources */,
-				94EC6F0E159694B30018AD05 /* SBJsonWriter.m in Sources */,
-				94EC703C159694B40018AD05 /* Makefile in Sources */,
-				94EC703E159694B40018AD05 /* base64.c in Sources */,
-				94EC703F159694B40018AD05 /* NSData+SRB64Additions.m in Sources */,
-				94EC7040159694B40018AD05 /* SRWebSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,14 +318,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				94EC6C74159666080018AD05 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		94EC6D2D159694B20018AD05 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				94EC6D2E159694B20018AD05 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
