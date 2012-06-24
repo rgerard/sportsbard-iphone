@@ -7,19 +7,17 @@
 //
 
 #import "SingleGameViewController.h"
+#import "SBJson.h"
 
 @interface SingleGameViewController ()
-@property (strong, nonatomic) IBOutlet UIButton *inningsButton;
-@property (strong, nonatomic) IBOutlet UIButton *homeTeamButton;
-@property (strong, nonatomic) IBOutlet UIButton *awayTeamButton;
+@property(strong, nonatomic) SocketIO *socket;
 @end
 
 @implementation SingleGameViewController
 
-@synthesize inningsButton, homeTeamButton, awayTeamButton, gameData;
+@synthesize inningsButton, homeTeamButton, awayTeamButton, gameData, socket;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -27,25 +25,66 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+	
+	self.socket = [[SocketIO alloc] initWithDelegate:self];
+	[self.socket connectToHost:@"localhost" onPort:8080];
+	
+	NSString *awayteam = [self.gameData objectForKey:@"awayteam"];
+	NSString *hometeam = [self.gameData objectForKey:@"hometeam"];
+	NSString *date = [self.gameData objectForKey:@"date"];
+	NSNumber *inning = [self.gameData objectForKey:@"inning"];
+	NSNumber *awayscore = [self.gameData objectForKey:@"awayscore"];
+	NSNumber *homescore = [self.gameData objectForKey:@"homescore"];
+	
+	if([awayscore integerValue] == -1) {
+		awayscore = [NSNumber numberWithInt:0];
+	}
+	
+	if([homescore integerValue] == -1) {
+		homescore = [NSNumber numberWithInt:0];
+	}
+	
+	NSString *awayTeamScore = [NSString stringWithFormat:@"%@ %@", [awayteam uppercaseString], awayscore, [hometeam uppercaseString], homescore];
+	NSString *homeTeamScore = [NSString stringWithFormat:@"%@ %@", [hometeam uppercaseString], homescore];
+	
     // Do any additional setup after loading the view from its nib.
-  self.inningsButton.titleLabel.text = @"9up";
-  self.homeTeamButton.titleLabel.text = @"ATL 4";
-  self.awayTeamButton.titleLabel.text = @"SEA 2";  
+	[self.inningsButton setTitle:[inning stringValue] forState:UIControlStateNormal];
+	[self.homeTeamButton setTitle:homeTeamScore forState:UIControlStateNormal];
+	[self.awayTeamButton setTitle:awayTeamScore	forState:UIControlStateNormal];
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+- (IBAction)clickAwayScore:(id)sender {
+	NSLog(@"Increase away score");
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (IBAction)clickHomeScore:(id)sender {
+	NSLog(@"Increase home score");	
+}
+
+- (IBAction)clickInning:(id)sender {
+	NSLog(@"Increase inning");
+}
+
+- (void)socketIO:(SocketIO *)socket didReceiveMessage:(SocketIOPacket *)packet {
+    NSLog(@"didReceiveMessage() >>> data: %@", packet.data);
+}
+
+- (void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet {
+	NSLog(@"didReceiveEvent() >>> data: %@", packet.data);
+	
+	SBJsonParser *parser = [[SBJsonParser alloc] init];
+	NSDictionary *eventData = [parser objectWithString:packet.data];
+	
+	if(eventData && [[eventData objectForKey:@"name"] isEqualToString:@"scoreupdated"]) {
+		NSArray *dataArr = [eventData objectForKey:@"args"];
+		NSDictionary *dataDict = [dataArr objectAtIndex:0];
+		
+		NSLog(@"data is %@", dataDict);
+		self.gameData = dataDict;
+		[self.view setNeedsLayout];
+	}
 }
 
 @end
