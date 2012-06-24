@@ -18,6 +18,7 @@
 @property(strong, nonatomic) UIImageView *homeLogo;
 @property(strong, nonatomic) UILabel *vsLbl;
 @property(strong, nonatomic) UILabel *numStoriesLbl;
+@property(strong, nonatomic) UIImageView *indicator;
 @end
 
 @implementation GameTableViewCell
@@ -31,6 +32,7 @@
 @synthesize vsLbl;
 @synthesize numStoriesLbl;
 @synthesize gameData = gameData_;
+@synthesize indicator;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -39,20 +41,22 @@
 		self.gameData = [NSDictionary dictionary];
 		
 		self.cellHeader = [[UIView alloc] initWithFrame:CGRectZero];
-		[self.cellHeader setBackgroundColor:[UIColor redColor]];
+		[self.cellHeader setBackgroundColor:[UIColor blueColor]];
 		
 		self.cellHeaderInning = [[UILabel alloc] initWithFrame:CGRectZero];
 		[self.cellHeaderInning setText:@"9up"];
 		[self.cellHeaderInning setFont:[UIFont systemFontOfSize:12.0]];
+		[self.cellHeaderInning setBackgroundColor:[UIColor clearColor]];
 		[self.cellHeader addSubview:self.cellHeaderInning];
 		
 		self.cellHeaderScores = [[UILabel alloc] initWithFrame:CGRectZero];
 		[self.cellHeaderScores setText:@"Scores"];
 		[self.cellHeaderScores setTextAlignment:UITextAlignmentCenter];
+		[self.cellHeaderScores setBackgroundColor:[UIColor clearColor]];
 		[self.cellHeader addSubview:self.cellHeaderScores];
 		
 		self.cellGameView = [[UIView alloc] initWithFrame:CGRectZero];
-		[self.cellGameView setBackgroundColor:[UIColor blueColor]];
+		[self.cellGameView setBackgroundColor:[UIColor lightGrayColor]];
 		
 		self.visitorLogo = [[UIImageView alloc] initWithFrame:CGRectZero];
 		[self.cellGameView addSubview:self.visitorLogo];
@@ -63,12 +67,17 @@
 		self.vsLbl = [[UILabel alloc] initWithFrame:CGRectZero];
 		[self.vsLbl setText:@"VS"];
 		[self.vsLbl setTextAlignment:UITextAlignmentCenter];
+		[self.vsLbl setBackgroundColor:[UIColor clearColor]];
 		[self.cellGameView addSubview:self.vsLbl];
 		
 		self.numStoriesLbl = [[UILabel alloc] initWithFrame:CGRectZero];
 		[self.numStoriesLbl setText:@"9 stories"];
 		[self.numStoriesLbl setTextAlignment:UITextAlignmentCenter];
+		[self.numStoriesLbl setBackgroundColor:[UIColor clearColor]];
 		[self.cellGameView addSubview:self.numStoriesLbl];
+		
+		self.indicator = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"indicator.png"]];
+		[self.cellGameView addSubview:self.indicator];
 		
 		[self.contentView addSubview:self.cellHeader];
 		[self.contentView addSubview:self.cellGameView];
@@ -82,15 +91,17 @@
     [super layoutSubviews];
     CGRect contentBounds = [self.contentView bounds];
     
-    [self.cellHeader setFrame:CGRectMake(contentBounds.origin.x, contentBounds.origin.y + 10, 320, 40)];
+    [self.cellHeader setFrame:CGRectMake(contentBounds.origin.x + 20, contentBounds.origin.y + 10, 280, 40)];
 	[self.cellHeaderInning setFrame:CGRectMake(contentBounds.origin.x, contentBounds.origin.y, 90, 40)];
-    [self.cellHeaderScores setFrame:CGRectMake(contentBounds.origin.x + 90, contentBounds.origin.y, 130, 40)];
+    [self.cellHeaderScores setFrame:CGRectMake(contentBounds.origin.x + 80, contentBounds.origin.y, 130, 40)];
 	
-    [self.cellGameView setFrame:CGRectMake(contentBounds.origin.x, contentBounds.origin.y + 40, 320, 60)];
+    [self.cellGameView setFrame:CGRectMake(contentBounds.origin.x + 20, contentBounds.origin.y + 40, 280, 60)];
 	[self.visitorLogo setFrame:CGRectMake(contentBounds.origin.x + 20, contentBounds.origin.y + 5, 50, 50)];
-	[self.homeLogo setFrame:CGRectMake(contentBounds.origin.x + 250, contentBounds.origin.y + 5, 50, 50)];
-    [self.vsLbl setFrame:CGRectMake(contentBounds.origin.x + 110, contentBounds.origin.y + 10, 100, 20)];
-	[self.numStoriesLbl setFrame:CGRectMake(contentBounds.origin.x + 110, contentBounds.origin.y + 30, 100, 20)];
+    [self.vsLbl setFrame:CGRectMake(contentBounds.origin.x + 90, contentBounds.origin.y + 10, 100, 20)];
+	[self.homeLogo setFrame:CGRectMake(contentBounds.origin.x + 210, contentBounds.origin.y + 5, 50, 50)];
+	[self.numStoriesLbl setFrame:CGRectMake(contentBounds.origin.x + 90, contentBounds.origin.y + 30, 100, 20)];
+	
+	[self.indicator setFrame:CGRectMake(contentBounds.origin.x + 263, contentBounds.origin.y + 25, 16, 16)];
 }
 
 - (void)setGameData:(NSDictionary *)gameData {

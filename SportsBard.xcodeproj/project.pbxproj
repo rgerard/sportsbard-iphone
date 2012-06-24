@@ -30,7 +30,6 @@
 		94EC6C92159673C20018AD05 /* SportSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6C90159673C20018AD05 /* SportSelectionViewController.m */; };
 		94EC6C93159673C20018AD05 /* SportSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6C91159673C20018AD05 /* SportSelectionViewController.xib */; };
 		94EC6C97159677310018AD05 /* GamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6C95159677310018AD05 /* GamesViewController.m */; };
-		94EC6C98159677310018AD05 /* GamesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94EC6C96159677310018AD05 /* GamesViewController.xib */; };
 		94EC6C9B15967EEC0018AD05 /* GameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6C9A15967EEC0018AD05 /* GameTableViewCell.m */; };
 		94EC6CB51596912A0018AD05 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6C9F1596912A0018AD05 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		94EC6CB61596912A0018AD05 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC6CA21596912A0018AD05 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -104,6 +103,7 @@
 		94EC711B1596BD540018AD05 /* WAS.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EC70FD1596BD540018AD05 /* WAS.png */; };
 		94EC711D1596BEF50018AD05 /* MIA.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EC711C1596BEF40018AD05 /* MIA.png */; };
 		94EC71201596D1860018AD05 /* SingleGameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC711F1596D1840018AD05 /* SingleGameTableViewCell.m */; };
+		94EC715F1596FB580018AD05 /* indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EC715E1596FB580018AD05 /* indicator.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,7 +138,6 @@
 		94EC6C91159673C20018AD05 /* SportSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SportSelectionViewController.xib; sourceTree = "<group>"; };
 		94EC6C94159677310018AD05 /* GamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamesViewController.h; sourceTree = "<group>"; };
 		94EC6C95159677310018AD05 /* GamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamesViewController.m; sourceTree = "<group>"; };
-		94EC6C96159677310018AD05 /* GamesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GamesViewController.xib; sourceTree = "<group>"; };
 		94EC6C9915967EEC0018AD05 /* GameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTableViewCell.h; sourceTree = "<group>"; };
 		94EC6C9A15967EEC0018AD05 /* GameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTableViewCell.m; sourceTree = "<group>"; };
 		94EC6C9E1596912A0018AD05 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -250,6 +249,7 @@
 		94EC711C1596BEF40018AD05 /* MIA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MIA.png; sourceTree = "<group>"; };
 		94EC711E1596D1820018AD05 /* SingleGameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleGameTableViewCell.h; sourceTree = "<group>"; };
 		94EC711F1596D1840018AD05 /* SingleGameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleGameTableViewCell.m; sourceTree = "<group>"; };
+		94EC715E1596FB580018AD05 /* indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = indicator.png; path = Resources/indicator.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,7 +336,6 @@
 				94EC6C91159673C20018AD05 /* SportSelectionViewController.xib */,
 				94EC6C94159677310018AD05 /* GamesViewController.h */,
 				94EC6C95159677310018AD05 /* GamesViewController.m */,
-				94EC6C96159677310018AD05 /* GamesViewController.xib */,
 				94EC6C9915967EEC0018AD05 /* GameTableViewCell.h */,
 				94EC6C9A15967EEC0018AD05 /* GameTableViewCell.m */,
 				475EB20B1596A30400D70102 /* SingleGameViewController.h */,
@@ -573,6 +572,7 @@
 		94EC70D61596BA160018AD05 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				94EC715E1596FB580018AD05 /* indicator.png */,
 				475EB2291596CCC700D70102 /* UI Assets */,
 				94EC70DF1596BD540018AD05 /* logos */,
 				94EC70D81596BA1F0018AD05 /* invite_button@2x.png */,
@@ -672,7 +672,6 @@
 				94EC6C75159666080018AD05 /* InfoPlist.strings in Resources */,
 				94EC6C89159666980018AD05 /* MainViewController.xib in Resources */,
 				94EC6C93159673C20018AD05 /* SportSelectionViewController.xib in Resources */,
-				94EC6C98159677310018AD05 /* GamesViewController.xib in Resources */,
 				94EC70C6159697330018AD05 /* InfoPlist.strings in Resources */,
 				94EC70C7159697330018AD05 /* SBJson-Info.plist in Resources */,
 				94EC70C8159697330018AD05 /* LICENSE.txt in Resources */,
@@ -721,6 +720,7 @@
 				475EB23B1596CCC700D70102 /* signin_twitter.png in Resources */,
 				475EB23D1596D3D400D70102 /* background_fade.png in Resources */,
 				475EB23F1596D57600D70102 /* signin_background.png in Resources */,
+				94EC715F1596FB580018AD05 /* indicator.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

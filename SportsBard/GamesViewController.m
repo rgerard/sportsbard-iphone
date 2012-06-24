@@ -16,6 +16,8 @@
 @property(strong, nonatomic) UILabel *dateLbl;
 @property(strong, nonatomic) UITableView *tableView;
 @property(strong, nonatomic) SocketIO *socket;
+@property(strong, nonatomic) UIView *backView;
+@property(strong, nonatomic) UIImageView *backImage;
 @end
 
 @implementation GamesViewController
@@ -24,9 +26,11 @@
 @synthesize tableView;
 @synthesize gameData;
 @synthesize socket;
+@synthesize backView;
+@synthesize backImage;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+- (id)init {
+    self = [super init];
     if (self) {
         // Custom initialization
 		self.gameData = [NSMutableArray array];
@@ -35,24 +39,34 @@
 }
 
 - (void)loadView {
-	UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-	[view setBackgroundColor:[UIColor whiteColor]];
+	self.backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+	
+	self.backImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+	[self.backImage setImage:[UIImage imageNamed:@"background_fade.png"]];
+	[self.backView addSubview:self.backImage];
 
 	UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
-	[header setBackgroundColor:[UIColor blackColor]];
-	[view addSubview:header];
+	[header setBackgroundColor:[UIColor clearColor]];
+	[self.backView addSubview:header];
 	
-	self.dateLbl = [[UILabel alloc] initWithFrame:CGRectMake(130, 0, 100, 40)];
+	NSDate *today = [NSDate date];
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+	[dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+	
+	self.dateLbl = [[UILabel alloc] initWithFrame:CGRectMake(90, 0, 150, 40)];
 	[self.dateLbl setBackgroundColor:[UIColor clearColor]];
-	[self.dateLbl setText:@"Date"];
-	[self.dateLbl setTextColor:[UIColor whiteColor]];
+	[self.dateLbl setText:[dateFormatter stringFromDate:today]];
+	[self.dateLbl setTextColor:[UIColor blackColor]];
+	[self.dateLbl setTextAlignment:UITextAlignmentCenter];
 	[self.dateLbl setFont:[UIFont boldSystemFontOfSize:18.0]];
-	[view addSubview:self.dateLbl];
+	[self.backView addSubview:self.dateLbl];
 	
 	self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.dateLbl.frame.origin.y + self.dateLbl.frame.size.height, 320, (480 - (self.dateLbl.frame.origin.y + self.dateLbl.frame.size.height))) style:UITableViewStylePlain];
 	[self.tableView setDelegate:self];
 	[self.tableView setDataSource:self];
-	[view addSubview:self.tableView];
+	[self.tableView setBackgroundColor:[UIColor clearColor]];
+	[self.backView addSubview:self.tableView];
 	
 	// Add the invite image inside of a larger view that will push the image a little more to the right
     UIView *inviteContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 35, 25)];
@@ -67,7 +81,7 @@
     UIBarButtonItem *inviteBarBtn = [[UIBarButtonItem alloc] initWithCustomView:inviteContainer];
     self.navigationItem.leftBarButtonItem = inviteBarBtn; 
 	
-	self.view = view;
+	self.view = self.backView;
 }
 
 - (void)viewDidLoad {
@@ -134,7 +148,6 @@
 	
 	NSDictionary *singleGame = [self.gameData objectAtIndex:indexPath.row];
 	[cell setGameData:singleGame];
-	[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
     return cell;
 }

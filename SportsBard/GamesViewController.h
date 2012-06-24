@@ -11,4 +11,5 @@
 
 @interface GamesViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, SocketIODelegate>
 @property(strong, nonatomic) NSMutableArray *gameData;
+- (id)init;
 @end

@@ -44,13 +44,28 @@
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">268</int>
 						<array class="NSMutableArray" key="NSSubviews">
+							<object class="IBUIImageView" id="987401617">
+								<reference key="NSNextResponder" ref="133422615"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{0, 7}, {320, 465}}</string>
+								<reference key="NSSuperview" ref="133422615"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="289204855"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">background_fade.png</string>
+								</object>
+							</object>
 							<object class="IBUIImageView" id="962296421">
 								<reference key="NSNextResponder" ref="133422615"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{222, 65}, {50, 50}}</string>
 								<reference key="NSSuperview" ref="133422615"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="659891724"/>
+								<reference key="NSNextKeyView" ref="66121159"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -107,7 +122,7 @@
 								<string key="NSFrame">{{9, 119}, {90, 37}}</string>
 								<reference key="NSSuperview" ref="133422615"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="390665145"/>
+								<reference key="NSNextKeyView" ref="659891724"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -129,7 +144,7 @@
 								<string key="NSFrame">{{222, 120}, {89, 37}}</string>
 								<reference key="NSSuperview" ref="133422615"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="66121159"/>
+								<reference key="NSNextKeyView" ref="390665145"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -258,7 +273,7 @@
 						<string key="NSFrame">{{0, -7}, {320, 467}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="289204855"/>
+						<reference key="NSNextKeyView" ref="987401617"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -469,6 +484,7 @@
 							<reference ref="157377351"/>
 							<reference ref="659891724"/>
 							<reference ref="66121159"/>
+							<reference ref="987401617"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -517,6 +533,11 @@
 						<reference key="object" ref="449327026"/>
 						<reference key="parent" ref="133422615"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">35</int>
+						<reference key="object" ref="987401617"/>
+						<reference key="parent" ref="133422615"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -532,6 +553,7 @@
 				<string key="15.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="20.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="24.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="35.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -540,7 +562,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">34</int>
+			<int key="maxID">35</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -635,6 +657,10 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="NS.key.0">background_fade.png</string>
+			<string key="NS.object.0">{320, 480}</string>
+		</object>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>
 </archive>

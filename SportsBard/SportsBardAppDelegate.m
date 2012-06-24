@@ -58,7 +58,7 @@
 - (void)_handleSportSelected:(NSNotification *)inNotification {
 	[self.sportSelectionViewController.view removeFromSuperview];
 	
-	self.gamesViewController = [[GamesViewController alloc] initWithNibName:nil bundle:nil];
+	self.gamesViewController = [[GamesViewController alloc] init];
 	[self.gamesViewController setTitle:@"SportsBard"];
 	[self.gamesViewController setGameData:self.todaysGames];
 	
@@ -75,7 +75,7 @@
 	self.todaysGames = [self gamesFrom:startOfToday until:endOfToday fromData:gamesData];
 
 	/*
-	self.gamesViewController = [[GamesViewController alloc] initWithNibName:nil bundle:nil];
+	self.gamesViewController = [[GamesViewController alloc] init];
 	[self.gamesViewController setTitle:@"SportsBard"];
 	[self.gamesViewController setGameData:todaysGames];
 	self.mainNavController = [[UINavigationController alloc] initWithRootViewController:self.gamesViewController];
