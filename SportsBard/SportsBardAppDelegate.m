@@ -10,12 +10,14 @@
 #import "MainViewController.h"
 #import "SportSelectionViewController.h"
 #import "GamesViewController.h"
+#import "DataRequester.h"
 
 @interface SportsBardAppDelegate ()
 @property(strong, nonatomic) UINavigationController *mainNavController;
 @property(strong, nonatomic) MainViewController *mainViewController;
 @property(strong, nonatomic) SportSelectionViewController *sportSelectionViewController;
 @property(strong, nonatomic) GamesViewController *gamesViewController;
+@property(strong, nonatomic) DataRequester *dataRequester;
 @end
 
 @implementation SportsBardAppDelegate
@@ -25,6 +27,7 @@
 @synthesize mainViewController;
 @synthesize sportSelectionViewController;
 @synthesize gamesViewController;
+@synthesize dataRequester;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -37,6 +40,10 @@
 	
 	//self.mainViewController = [[MainViewController alloc] initWithNibName:nil bundle:nil];
 	//[self.window addSubview:self.mainViewController.view];
+	
+	self.dataRequester = [[DataRequester alloc] init];
+	[self.dataRequester requestGamesData];
+	
 	[self _handleSportSelected:nil];
 	
     return YES;
