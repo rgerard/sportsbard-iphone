@@ -86,8 +86,8 @@
     [self.cellHeaderScores setFrame:CGRectMake(contentBounds.origin.x + 90, contentBounds.origin.y, 130, 40)];
 	
     [self.cellGameView setFrame:CGRectMake(contentBounds.origin.x, contentBounds.origin.y + 40, 320, 60)];
-	[self.visitorLogo setFrame:CGRectMake(contentBounds.origin.x + 10, contentBounds.origin.y + 10, 50, 50)];
-	[self.homeLogo setFrame:CGRectMake(contentBounds.origin.x + 100, contentBounds.origin.y + 10, 50, 50)];
+	[self.visitorLogo setFrame:CGRectMake(contentBounds.origin.x + 20, contentBounds.origin.y + 5, 50, 50)];
+	[self.homeLogo setFrame:CGRectMake(contentBounds.origin.x + 250, contentBounds.origin.y + 5, 50, 50)];
     [self.vsLbl setFrame:CGRectMake(contentBounds.origin.x + 110, contentBounds.origin.y + 10, 100, 20)];
 	[self.numStoriesLbl setFrame:CGRectMake(contentBounds.origin.x + 110, contentBounds.origin.y + 30, 100, 20)];
 }
@@ -125,6 +125,9 @@
 	} else {
 		[self.cellHeaderInning setText:[inning stringValue]];
 	}
+
+	[self.visitorLogo setImage:[UIImage imageNamed:[awayteam uppercaseString]]];
+	[self.homeLogo setImage:[UIImage imageNamed:[hometeam uppercaseString]]];
 }
 
 @end
