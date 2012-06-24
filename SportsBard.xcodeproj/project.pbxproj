@@ -19,6 +19,8 @@
 		475EB23B1596CCC700D70102 /* signin_twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 475EB2321596CCC700D70102 /* signin_twitter.png */; };
 		475EB23D1596D3D400D70102 /* background_fade.png in Resources */ = {isa = PBXBuildFile; fileRef = 475EB23C1596D3D400D70102 /* background_fade.png */; };
 		475EB23F1596D57600D70102 /* signin_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 475EB23E1596D57600D70102 /* signin_background.png */; };
+		479B36F91597CFB600D171D4 /* button_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 479B36F81597CFB600D171D4 /* button_background.png */; };
+		479B36FB1597D01300D171D4 /* button_background35.png in Resources */ = {isa = PBXBuildFile; fileRef = 479B36FA1597D01300D171D4 /* button_background35.png */; };
 		94EC6C6B159666080018AD05 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC6C6A159666080018AD05 /* UIKit.framework */; };
 		94EC6C6D159666080018AD05 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC6C6C159666080018AD05 /* Foundation.framework */; };
 		94EC6C6F159666080018AD05 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94EC6C6E159666080018AD05 /* CoreGraphics.framework */; };
@@ -124,6 +126,8 @@
 		475EB2321596CCC700D70102 /* signin_twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signin_twitter.png; sourceTree = "<group>"; };
 		475EB23C1596D3D400D70102 /* background_fade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_fade.png; sourceTree = "<group>"; };
 		475EB23E1596D57600D70102 /* signin_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signin_background.png; sourceTree = "<group>"; };
+		479B36F81597CFB600D171D4 /* button_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_background.png; path = ../../../../../Desktop/dump/items/button_background.png; sourceTree = "<group>"; };
+		479B36FA1597D01300D171D4 /* button_background35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_background35.png; path = ../../../../../Desktop/dump/items/button_background35.png; sourceTree = "<group>"; };
 		94EC6C66159666080018AD05 /* SportsBard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsBard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94EC6C6A159666080018AD05 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		94EC6C6C159666080018AD05 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -286,6 +290,8 @@
 			isa = PBXGroup;
 			children = (
 				475EB22A1596CCC700D70102 /* button_currentGame.png */,
+				479B36FA1597D01300D171D4 /* button_background35.png */,
+				479B36F81597CFB600D171D4 /* button_background.png */,
 				475EB22B1596CCC700D70102 /* icon_add.png */,
 				475EB22C1596CCC700D70102 /* icon_arrow.png */,
 				475EB22D1596CCC700D70102 /* logo.png */,
@@ -747,6 +753,8 @@
 				94EC715F1596FB580018AD05 /* indicator.png in Resources */,
 				94EC7161159704D60018AD05 /* thumbsup.png in Resources */,
 				94EC7163159705C80018AD05 /* close.jpeg in Resources */,
+				479B36F91597CFB600D171D4 /* button_background.png in Resources */,
+				479B36FB1597D01300D171D4 /* button_background35.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
