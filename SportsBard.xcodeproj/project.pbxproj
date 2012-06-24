@@ -57,6 +57,7 @@
 		94EC70CB159697330018AD05 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC70B3159697330018AD05 /* NSData+SRB64Additions.m */; };
 		94EC70CC159697330018AD05 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC70B6159697330018AD05 /* SRWebSocket.m */; };
 		94EC70CD159697330018AD05 /* SocketRocketOSX-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94EC70B8159697330018AD05 /* SocketRocketOSX-Info.plist */; };
+		94EC70D0159699870018AD05 /* NSDate+DateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC70CF159699870018AD05 /* NSDate+DateAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +153,8 @@
 		94EC70B5159697330018AD05 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		94EC70B6159697330018AD05 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		94EC70B8159697330018AD05 /* SocketRocketOSX-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SocketRocketOSX-Info.plist"; sourceTree = "<group>"; };
+		94EC70CE159699870018AD05 /* NSDate+DateAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; path = "NSDate+DateAdditions.h"; sourceTree = "<group>"; };
+		94EC70CF159699870018AD05 /* NSDate+DateAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +228,7 @@
 				94EC6C9A15967EEC0018AD05 /* GameTableViewCell.m */,
 				94EC6CC6159692190018AD05 /* DataRequester.h */,
 				94EC6CC7159692190018AD05 /* DataRequester.m */,
+				94EC70D1159699FB0018AD05 /* Utilities */,
 				94EC6C9C1596911C0018AD05 /* External */,
 				94EC6C71159666080018AD05 /* Supporting Files */,
 			);
@@ -435,6 +439,15 @@
 			path = SocketRocketOSX;
 			sourceTree = "<group>";
 		};
+		94EC70D1159699FB0018AD05 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				94EC70CE159699870018AD05 /* NSDate+DateAdditions.h */,
+				94EC70CF159699870018AD05 /* NSDate+DateAdditions.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -537,6 +550,7 @@
 				94EC70CA159697330018AD05 /* base64.c in Sources */,
 				94EC70CB159697330018AD05 /* NSData+SRB64Additions.m in Sources */,
 				94EC70CC159697330018AD05 /* SRWebSocket.m in Sources */,
+				94EC70D0159699870018AD05 /* NSDate+DateAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

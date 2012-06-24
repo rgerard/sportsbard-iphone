@@ -12,20 +12,19 @@
 @interface GamesViewController ()
 @property(strong, nonatomic) UILabel *dateLbl;
 @property(strong, nonatomic) UITableView *tableView;
-@property(strong, nonatomic) NSMutableArray *gamesInfo;
 @end
 
 @implementation GamesViewController
 
 @synthesize dateLbl;
 @synthesize tableView;
-@synthesize gamesInfo;
+@synthesize gameData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-		self.gamesInfo = [NSMutableArray array];
+		self.gameData = [NSMutableArray array];
     }
     return self;
 }
@@ -64,7 +63,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-	return 1;//[self.gamesInfo count];
+	return [self.gameData count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -78,6 +77,8 @@
         cell = [[GameTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 	
+	NSDictionary *singleGame = [self.gameData objectAtIndex:indexPath.row];
+	[cell setGameData:singleGame];
 	[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
     return cell;

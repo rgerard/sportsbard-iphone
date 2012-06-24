@@ -11,6 +11,7 @@
 #import "SportSelectionViewController.h"
 #import "GamesViewController.h"
 #import "DataRequester.h"
+#import "NSDate+DateAdditions.h"
 
 @interface SportsBardAppDelegate ()
 @property(strong, nonatomic) UINavigationController *mainNavController;
@@ -37,14 +38,13 @@
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_handleLoginSuccess:) name:LoginSuccessNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_handleSportSelected:) name:SportSelectedNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_handleGamesDownloaded:) name:GamesDownloadedNotification object:nil];
 	
 	//self.mainViewController = [[MainViewController alloc] initWithNibName:nil bundle:nil];
 	//[self.window addSubview:self.mainViewController.view];
 	
 	self.dataRequester = [[DataRequester alloc] init];
 	[self.dataRequester requestGamesData];
-	
-	[self _handleSportSelected:nil];
 	
     return YES;
 }
@@ -65,6 +65,43 @@
 	self.mainNavController = [[UINavigationController alloc] initWithRootViewController:self.gamesViewController];
 	
 	[self.window addSubview:self.mainNavController.view];
+}
+
+- (void)_handleGamesDownloaded:(NSNotification *)inNotification {
+	NSArray *gamesData = [inNotification object];
+	
+	NSDate *startOfToday = [[NSDate date] startOfDay];
+	NSDate *endOfToday = [startOfToday dateByAddingTimeInterval:86400];
+	NSMutableArray *todaysGames = [self gamesFrom:startOfToday until:endOfToday fromData:gamesData];
+	
+	self.gamesViewController = [[GamesViewController alloc] initWithNibName:nil bundle:nil];
+	[self.gamesViewController setTitle:@"SportsBard"];
+	[self.gamesViewController setGameData:todaysGames];
+	
+	self.mainNavController = [[UINavigationController alloc] initWithRootViewController:self.gamesViewController];
+	
+	[self.window addSubview:self.mainNavController.view];
+}
+
+- (NSMutableArray *)gamesFrom:(NSDate *)start until:(NSDate *)end fromData:(NSArray *)games {
+	NSMutableArray *todaysGames = [NSMutableArray array];
+	
+	NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+	NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init]; 
+	[dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+	[dateFormat setLocale:usLocale];
+	[dateFormat setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"EST"]];
+	
+	for(NSDictionary *game in games) {
+		NSString *gameDate = [game objectForKey:@"date"];
+		NSDate *actualDate = [dateFormat dateFromString:gameDate];
+		
+		if([start compare:actualDate] == NSOrderedAscending && [end compare:actualDate] == NSOrderedDescending) {
+			[todaysGames addObject:game];
+		}
+	}
+	
+	return todaysGames;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

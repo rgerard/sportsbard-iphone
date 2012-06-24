@@ -7,6 +7,9 @@
 //
 
 #import "DataRequester.h"
+#import "SBJson.h"
+
+NSString * const GamesDownloadedNotification = @"GamesDownloadedNotification";
 
 @implementation DataRequester
 
@@ -32,8 +35,13 @@
 - (void)requestFinished:(ASIHTTPRequest *)request {
 	// Use when fetching text data
 	NSString *responseString = [request responseString];
+	SBJsonParser *parser = [[SBJsonParser alloc] init];
+	self.gamesData = [parser objectWithString:responseString];
 	
-	NSLog(@"%@", responseString);
+	NSLog(@"%@", self.gamesData);
+	
+	NSNotification *notification = [NSNotification notificationWithName:GamesDownloadedNotification object:self.gamesData];
+    [[NSNotificationCenter defaultCenter] performSelector:@selector(postNotification:) onThread:[NSThread mainThread] withObject:notification waitUntilDone:NO];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request {

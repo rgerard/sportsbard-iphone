@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GamesViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
-
+@property(strong, nonatomic) NSMutableArray *gameData;
 @end

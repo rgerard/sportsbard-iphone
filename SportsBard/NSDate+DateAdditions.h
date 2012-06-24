@@ -1,5 +1,5 @@
 //
-//  GameTableViewCell.h
+//  DateAdditions.h
 //  SportsBard
 //
 //  Created by Ryan Gerard on 6/23/12.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GameTableViewCell : UITableViewCell
-@property(strong, nonatomic) NSDictionary *gameData;
+@interface NSDate (DateAdditions)
+- (NSDate *)startOfWeek;
+- (NSDate *)startOfDay;
 @end
+

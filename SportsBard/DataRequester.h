@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ASIHTTPRequest.h"
 
+extern NSString * const GamesDownloadedNotification;
+
 @interface DataRequester : NSObject<ASIHTTPRequestDelegate>
 @property(strong, nonatomic) NSMutableArray *gamesData;
 - (id)init;
