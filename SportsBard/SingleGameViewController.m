@@ -8,10 +8,9 @@
 
 #import "SingleGameViewController.h"
 #import "SBJson.h"
-#import "SingleGameTableViewCell.h"
 
 @interface SingleGameViewController ()
-@property(strong, nonatomic) SocketIO *socket;
+@property (strong, nonatomic) SocketIO *socket;
 @property (strong, nonatomic) IBOutlet UIButton *inningsButton;
 @property (strong, nonatomic) IBOutlet UIButton *homeTeamButton;
 @property (strong, nonatomic) IBOutlet UIButton *awayTeamButton;
@@ -67,16 +66,32 @@
 	
 	// Request the games data
 	[self.socket sendEvent:@"getstories" withData:[NSDictionary dictionaryWithObject:gameid forKey:@"gameid"]];
-	
-	if([inning integerValue] == 0) {
-		inning = [NSNumber numberWithInt:1];
-	}
-	
+
 	NSString *awayTeamScore = [NSString stringWithFormat:@"%@ %@", [awayteam uppercaseString], awayscore];
 	NSString *homeTeamScore = [NSString stringWithFormat:@"%@ %@", [hometeam uppercaseString], homescore];
 	
-    // Do any additional setup after loading the view from its nib.
-	[self.inningsButton setTitle:[inning stringValue] forState:UIControlStateNormal];
+	
+	if([inning integerValue] == 100) {
+		[self.inningsButton setTitle:@"Finished" forState:UIControlStateNormal];	
+	} else {		
+		if([inning integerValue] == 0) {
+			inning = [NSNumber numberWithInt:1];
+		}
+		
+		NSString *direction = @"Top";
+		if([inning integerValue] % 2 == 0) {
+			direction = @"Bottom";
+			NSInteger current = [inning integerValue];
+			inning = [NSNumber numberWithInt:(current/2)];
+		} else {
+			NSInteger current = [inning integerValue] + 1;
+			inning = [NSNumber numberWithInt:(current/2)];
+		}
+		
+		NSString *ordinalNum = [self addSuffixToNumber:[inning integerValue]];
+		[self.inningsButton setTitle:[NSString stringWithFormat:@"%@ %@", direction, ordinalNum] forState:UIControlStateNormal];	
+	}
+	
 	[self.homeTeamButton setTitle:homeTeamScore forState:UIControlStateNormal];
 	[self.awayTeamButton setTitle:awayTeamScore	forState:UIControlStateNormal];
 	
@@ -142,6 +157,22 @@
 	[self.storyTextField setText:@""];
 }
 
+- (void)gameCell:(SingleGameTableViewCell *)inGameCell didLike:(NSString *)storyid {
+	NSMutableDictionary *data = [NSMutableDictionary dictionary];
+	[data setObject:storyid forKey:@"storyid"];
+	
+	// Increase the away score
+	[self.socket sendEvent:@"storylike" withData:data];
+}
+
+- (void)gameCell:(SingleGameTableViewCell *)inGameCell didHide:(NSString *)storyid {
+	NSMutableDictionary *data = [NSMutableDictionary dictionary];
+	[data setObject:storyid forKey:@"storyid"];
+	
+	// Increase the away score
+	[self.socket sendEvent:@"storyhide" withData:data];
+}
+
 - (void)socketIO:(SocketIO *)socket didReceiveMessage:(SocketIOPacket *)packet {
     NSLog(@"didReceiveMessage() >>> data: %@", packet.data);
 }
@@ -181,6 +212,27 @@
 		NSLog(@"data is %@", story);
 		[self.storyData addObject:story];
 		[self.gameStoryFeed reloadData];
+	} else if(eventData && [[eventData objectForKey:@"name"] isEqualToString:@"storyupdated"]) {
+		NSArray *dataArr = [eventData objectForKey:@"args"];
+		NSDictionary *story = [dataArr objectAtIndex:0];
+		
+		NSLog(@"data is %@", story);
+		
+		// Find and replace the story
+		NSInteger foundStory = -1;
+		for(int i=0; i < [self.storyData count]; i++) {
+			NSDictionary *data = [self.storyData objectAtIndex:i];
+			NSString *storyid = [data objectForKey:@"_id"];
+			if([storyid isEqualToString:[story objectForKey:@"_id"]]) {
+				foundStory = i;
+				break;
+			}
+		}
+		
+		if(foundStory != -1) {
+			[self.storyData replaceObjectAtIndex:foundStory withObject:story];
+			[self.gameStoryFeed reloadData];
+		}
 	}
 }
 
@@ -197,6 +249,7 @@
 	SingleGameTableViewCell *cell = [self.gameStoryFeed dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {	
 		cell = [[SingleGameTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+		[cell setDelegate:self];
 	}
 
 	NSDictionary *story = [self.storyData objectAtIndex:indexPath.row];
@@ -222,6 +275,28 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
   [textField resignFirstResponder];
   return YES;
+}
+
+-(NSString *)addSuffixToNumber:(int)number {
+    NSString *suffix;
+    int ones = number % 10;
+    int temp = floor(number/10.0);
+    int tens = temp%10;
+	
+    if (tens ==1) {
+        suffix = @"th";
+    } else if (ones ==1){
+        suffix = @"st";
+    } else if (ones ==2){
+        suffix = @"nd";
+    } else if (ones ==3){
+        suffix = @"rd";
+    } else {
+        suffix = @"th";
+    }
+	
+	NSString *completeAsString = [NSString stringWithFormat:@"%d%@",number,suffix];
+	return completeAsString;
 }
 
 @end

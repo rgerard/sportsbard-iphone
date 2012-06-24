@@ -7,6 +7,7 @@
 //
 
 #import "SingleGameTableViewCell.h"
+#import "SBJson.h"
 
 @interface SingleGameTableViewCell ()
 @property(strong, nonatomic) UIView *backView;
@@ -18,13 +19,14 @@
 
 @implementation SingleGameTableViewCell
 
-@synthesize backView, storyData = storyData_, story, likes, like, hide;
+@synthesize backView, storyData = storyData_, story, likes, like, hide, delegate;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
 		self.backView = [[UIView alloc] initWithFrame:CGRectZero];
+		[self.backView setBackgroundColor:[UIColor whiteColor]];
 
 		self.story = [[UITextView alloc] initWithFrame:CGRectZero];
 		[self.story setBackgroundColor:[UIColor redColor]];
@@ -36,13 +38,13 @@
 		[self.likes setTextAlignment:UITextAlignmentRight];
 		[self.backView addSubview:self.likes];
 		
-		self.like = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-		[self.like setTitle:@"L" forState:UIControlStateNormal];
+		self.like = [UIButton buttonWithType:UIButtonTypeCustom];
+		[self.like setImage:[UIImage imageNamed:@"thumbsup.png"] forState:UIControlStateNormal];
 		[self.like addTarget:self action:@selector(_likeStory:) forControlEvents:UIControlEventTouchUpInside];
 		[self.backView addSubview:self.like];
 		
-		self.hide = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-		[self.hide setTitle:@"H" forState:UIControlStateNormal];
+		self.hide = [UIButton buttonWithType:UIButtonTypeCustom];
+		[self.hide setImage:[UIImage imageNamed:@"close.jpeg"] forState:UIControlStateNormal];
 		[self.hide addTarget:self action:@selector(_hideStory:) forControlEvents:UIControlEventTouchUpInside];
 		[self.backView addSubview:self.hide];
 		
@@ -57,12 +59,12 @@
     [super layoutSubviews];
     CGRect contentBounds = [self.contentView bounds];
     
-    [self.backView setFrame:CGRectMake(contentBounds.origin.x, contentBounds.origin.y, 320, 80)];
-	[self.story setFrame:CGRectMake(contentBounds.origin.x + 10, contentBounds.origin.y, 240, 60)];
+    [self.backView setFrame:CGRectMake(contentBounds.origin.x + 10, contentBounds.origin.y, 300, 80)];
+	[self.story setFrame:CGRectMake(contentBounds.origin.x, contentBounds.origin.y, 250, 60)];
     [self.likes setFrame:CGRectMake(contentBounds.origin.x + 150, contentBounds.origin.y + 60, 100, 20)];
 	
-    [self.like setFrame:CGRectMake(contentBounds.origin.x + 270, contentBounds.origin.y, 30, 30)];
-	[self.hide setFrame:CGRectMake(contentBounds.origin.x + 270, contentBounds.origin.y + 35, 30, 30)];
+    [self.like setFrame:CGRectMake(contentBounds.origin.x + 263, contentBounds.origin.y + 5, 25, 25)];
+	[self.hide setFrame:CGRectMake(contentBounds.origin.x + 260, contentBounds.origin.y + 40, 30, 30)];
 }
 
 - (void)setStoryData:(NSDictionary *)storyData {
@@ -76,10 +78,21 @@
 
 - (void)_likeStory:(id)sender {
 	NSLog(@"Like story");
+	
+	NSString *storyid = [self.storyData objectForKey:@"_id"];	
+	if ([self.delegate respondsToSelector:@selector(gameCell:didLike:)]) {
+		[self.delegate gameCell:self didLike:storyid];
+	}
 }
 
 - (void)_hideStory:(id)sender {
 	NSLog(@"Hide story");
+	
+	NSString *storyid = [self.storyData objectForKey:@"_id"];	
+	if ([self.delegate respondsToSelector:@selector(gameCell:didHide:)]) {
+		[self.delegate gameCell:self didHide:storyid];
+	}
 }
+
 
 @end

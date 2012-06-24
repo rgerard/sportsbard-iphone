@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SocketIO.h"
+#import "SingleGameTableViewCell.h"
 
-@interface SingleGameViewController : UIViewController<SocketIODelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface SingleGameViewController : UIViewController<SocketIODelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, SingleGameCellDelegate>
 @property(strong, nonatomic) NSDictionary *gameData;
 
 @end

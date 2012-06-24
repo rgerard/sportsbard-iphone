@@ -47,6 +47,7 @@
 		[self.cellHeaderInning setText:@"9up"];
 		[self.cellHeaderInning setFont:[UIFont systemFontOfSize:12.0]];
 		[self.cellHeaderInning setBackgroundColor:[UIColor clearColor]];
+		[self.cellHeaderInning setTextColor:[UIColor whiteColor]];
 		[self.cellHeader addSubview:self.cellHeaderInning];
 		
 		self.cellHeaderScores = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -66,6 +67,7 @@
 		
 		self.vsLbl = [[UILabel alloc] initWithFrame:CGRectZero];
 		[self.vsLbl setText:@"VS"];
+		[self.vsLbl setFont:[UIFont boldSystemFontOfSize:18.0]];
 		[self.vsLbl setTextAlignment:UITextAlignmentCenter];
 		[self.vsLbl setBackgroundColor:[UIColor clearColor]];
 		[self.cellGameView addSubview:self.vsLbl];
@@ -73,6 +75,7 @@
 		self.numStoriesLbl = [[UILabel alloc] initWithFrame:CGRectZero];
 		[self.numStoriesLbl setText:@"9 stories"];
 		[self.numStoriesLbl setTextAlignment:UITextAlignmentCenter];
+		[self.numStoriesLbl setFont:[UIFont systemFontOfSize:12.0]];
 		[self.numStoriesLbl setBackgroundColor:[UIColor clearColor]];
 		[self.cellGameView addSubview:self.numStoriesLbl];
 		
@@ -92,16 +95,16 @@
     CGRect contentBounds = [self.contentView bounds];
     
     [self.cellHeader setFrame:CGRectMake(contentBounds.origin.x + 20, contentBounds.origin.y + 10, 280, 40)];
-	[self.cellHeaderInning setFrame:CGRectMake(contentBounds.origin.x, contentBounds.origin.y, 90, 40)];
-    [self.cellHeaderScores setFrame:CGRectMake(contentBounds.origin.x + 80, contentBounds.origin.y, 130, 40)];
+	[self.cellHeaderInning setFrame:CGRectMake(contentBounds.origin.x, contentBounds.origin.y-5, 90, 40)];
+    [self.cellHeaderScores setFrame:CGRectMake(contentBounds.origin.x + 80, contentBounds.origin.y-5, 130, 40)];
 	
-    [self.cellGameView setFrame:CGRectMake(contentBounds.origin.x + 20, contentBounds.origin.y + 40, 280, 60)];
-	[self.visitorLogo setFrame:CGRectMake(contentBounds.origin.x + 20, contentBounds.origin.y + 5, 50, 50)];
-    [self.vsLbl setFrame:CGRectMake(contentBounds.origin.x + 90, contentBounds.origin.y + 10, 100, 20)];
-	[self.homeLogo setFrame:CGRectMake(contentBounds.origin.x + 210, contentBounds.origin.y + 5, 50, 50)];
-	[self.numStoriesLbl setFrame:CGRectMake(contentBounds.origin.x + 90, contentBounds.origin.y + 30, 100, 20)];
+    [self.cellGameView setFrame:CGRectMake(contentBounds.origin.x + 20, contentBounds.origin.y + 40, 280, 80)];
+	[self.visitorLogo setFrame:CGRectMake(contentBounds.origin.x + 30, contentBounds.origin.y + 15, 50, 50)];
+    [self.vsLbl setFrame:CGRectMake(contentBounds.origin.x + 90, contentBounds.origin.y + 30, 100, 20)];
+	[self.homeLogo setFrame:CGRectMake(contentBounds.origin.x + 200, contentBounds.origin.y + 15, 50, 50)];
+	[self.numStoriesLbl setFrame:CGRectMake(contentBounds.origin.x + 90, contentBounds.origin.y + 55, 100, 20)];
 	
-	[self.indicator setFrame:CGRectMake(contentBounds.origin.x + 263, contentBounds.origin.y + 25, 16, 16)];
+	[self.indicator setFrame:CGRectMake(contentBounds.origin.x + 260, contentBounds.origin.y + 35, 16, 16)];
 }
 
 - (void)setGameData:(NSDictionary *)gameData {
@@ -114,9 +117,6 @@
 	NSString *awayscore = [gameData objectForKey:@"awayscore"];
 	NSString *homescore = [gameData objectForKey:@"homescore"];
 	
-	NSString *headerScore = [NSString stringWithFormat:@"%@ %@, %@ %@", [awayteam uppercaseString], awayscore, [hometeam uppercaseString], homescore];
-	[self.cellHeaderScores setText:headerScore];
-	
 	// Formatter to convert date string to NSDate object
 	NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
 	NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init]; 
@@ -125,21 +125,63 @@
 	[dateFormat setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"EST"]];
 	NSDate *actualDate = [dateFormat dateFromString:date];
 	
-	// Formatter to turn the NSDate into a nicely formatter time
-	NSDateFormatter *cellHeaderDateFormatter = [[NSDateFormatter alloc] init];
-	[cellHeaderDateFormatter setDateFormat:@"K:mm a, z"];
-	
-	// -1 means it hasn't started, 100 means it's over
-	if([inning integerValue] == -1) {
-		[self.cellHeaderInning setText:[cellHeaderDateFormatter stringFromDate:actualDate]];
-	} else if([inning integerValue] == 100) {
-		[self.cellHeaderInning setText:@""];
+	NSDate *now = [NSDate date];
+	if([now compare:actualDate] == NSOrderedAscending) {
+		// Formatter to turn the NSDate into a nicely formatter time
+		NSDateFormatter *cellHeaderDateFormatter = [[NSDateFormatter alloc] init];
+		[cellHeaderDateFormatter setDateFormat:@"K:mm a, z"];
+		
+		// 0 means it hasn't started, 100 means it's over
+		if([inning integerValue] == 0) {
+			[self.cellHeaderInning setText:[cellHeaderDateFormatter stringFromDate:actualDate]];
+		} else if([inning integerValue] == 100) {
+			[self.cellHeaderInning setText:@""];
+		} else {
+			
+			NSString *direction = @"Top";
+			if([inning integerValue] % 2 == 0) {
+				direction = @"Bottom";
+				NSInteger current = [inning integerValue];
+				inning = [NSNumber numberWithInt:(current/2)];
+			} else {
+				NSInteger current = [inning integerValue] + 1;
+				inning = [NSNumber numberWithInt:(current/2)];
+			}
+			
+			NSString *ordinalNum = [self addSuffixToNumber:[inning integerValue]];
+			[self.cellHeaderInning setText:[NSString stringWithFormat:@"%@ %@", direction, ordinalNum]];
+		}
+		
+		[self.cellHeaderScores setText:[NSString stringWithFormat:@"%@ vs %@", [awayteam uppercaseString], [hometeam uppercaseString]]];
 	} else {
-		[self.cellHeaderInning setText:[inning stringValue]];
+		NSString *headerScore = [NSString stringWithFormat:@"%@ %@, %@ %@", [awayteam uppercaseString], awayscore, [hometeam uppercaseString], homescore];
+		[self.cellHeaderScores setText:headerScore];	
 	}
 
 	[self.visitorLogo setImage:[UIImage imageNamed:[awayteam uppercaseString]]];
 	[self.homeLogo setImage:[UIImage imageNamed:[hometeam uppercaseString]]];
+}
+
+-(NSString *)addSuffixToNumber:(int)number {
+    NSString *suffix;
+    int ones = number % 10;
+    int temp = floor(number/10.0);
+    int tens = temp%10;
+	
+    if (tens ==1) {
+        suffix = @"th";
+    } else if (ones ==1){
+        suffix = @"st";
+    } else if (ones ==2){
+        suffix = @"nd";
+    } else if (ones ==3){
+        suffix = @"rd";
+    } else {
+        suffix = @"th";
+    }
+	
+	NSString *completeAsString = [NSString stringWithFormat:@"%d%@",number,suffix];
+	return completeAsString;
 }
 
 @end

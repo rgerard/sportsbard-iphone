@@ -104,6 +104,8 @@
 		94EC711D1596BEF50018AD05 /* MIA.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EC711C1596BEF40018AD05 /* MIA.png */; };
 		94EC71201596D1860018AD05 /* SingleGameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC711F1596D1840018AD05 /* SingleGameTableViewCell.m */; };
 		94EC715F1596FB580018AD05 /* indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EC715E1596FB580018AD05 /* indicator.png */; };
+		94EC7161159704D60018AD05 /* thumbsup.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EC7160159704D60018AD05 /* thumbsup.png */; };
+		94EC7163159705C80018AD05 /* close.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 94EC7162159705C70018AD05 /* close.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -250,6 +252,8 @@
 		94EC711E1596D1820018AD05 /* SingleGameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleGameTableViewCell.h; sourceTree = "<group>"; };
 		94EC711F1596D1840018AD05 /* SingleGameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleGameTableViewCell.m; sourceTree = "<group>"; };
 		94EC715E1596FB580018AD05 /* indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = indicator.png; path = Resources/indicator.png; sourceTree = "<group>"; };
+		94EC7160159704D60018AD05 /* thumbsup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thumbsup.png; path = Resources/thumbsup.png; sourceTree = "<group>"; };
+		94EC7162159705C70018AD05 /* close.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = close.jpeg; path = Resources/close.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -572,6 +576,8 @@
 		94EC70D61596BA160018AD05 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				94EC7162159705C70018AD05 /* close.jpeg */,
+				94EC7160159704D60018AD05 /* thumbsup.png */,
 				94EC715E1596FB580018AD05 /* indicator.png */,
 				475EB2291596CCC700D70102 /* UI Assets */,
 				94EC70DF1596BD540018AD05 /* logos */,
@@ -721,6 +727,8 @@
 				475EB23D1596D3D400D70102 /* background_fade.png in Resources */,
 				475EB23F1596D57600D70102 /* signin_background.png in Resources */,
 				94EC715F1596FB580018AD05 /* indicator.png in Resources */,
+				94EC7161159704D60018AD05 /* thumbsup.png in Resources */,
+				94EC7163159705C80018AD05 /* close.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

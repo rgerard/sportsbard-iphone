@@ -59,7 +59,7 @@
 	[self.sportSelectionViewController.view removeFromSuperview];
 	
 	self.gamesViewController = [[GamesViewController alloc] init];
-	[self.gamesViewController setTitle:@"SportsBard"];
+	[self.gamesViewController setTitle:@"sportsfeed"];
 	[self.gamesViewController setGameData:self.todaysGames];
 	
 	self.mainNavController = [[UINavigationController alloc] initWithRootViewController:self.gamesViewController];
