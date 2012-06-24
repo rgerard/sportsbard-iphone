@@ -103,6 +103,7 @@
 		94EC711A1596BD540018AD05 /* TOR.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EC70FC1596BD540018AD05 /* TOR.png */; };
 		94EC711B1596BD540018AD05 /* WAS.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EC70FD1596BD540018AD05 /* WAS.png */; };
 		94EC711D1596BEF50018AD05 /* MIA.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EC711C1596BEF40018AD05 /* MIA.png */; };
+		94EC71201596D1860018AD05 /* SingleGameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EC711F1596D1840018AD05 /* SingleGameTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -247,6 +248,8 @@
 		94EC70FC1596BD540018AD05 /* TOR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TOR.png; sourceTree = "<group>"; };
 		94EC70FD1596BD540018AD05 /* WAS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WAS.png; sourceTree = "<group>"; };
 		94EC711C1596BEF40018AD05 /* MIA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MIA.png; sourceTree = "<group>"; };
+		94EC711E1596D1820018AD05 /* SingleGameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleGameTableViewCell.h; sourceTree = "<group>"; };
+		94EC711F1596D1840018AD05 /* SingleGameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleGameTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +342,8 @@
 				475EB20B1596A30400D70102 /* SingleGameViewController.h */,
 				475EB20C1596A30400D70102 /* SingleGameViewController.m */,
 				475EB20D1596A30400D70102 /* SingleGameViewController.xib */,
+				94EC711E1596D1820018AD05 /* SingleGameTableViewCell.h */,
+				94EC711F1596D1840018AD05 /* SingleGameTableViewCell.m */,
 				94EC70DA1596BA8C0018AD05 /* AddGameViewController.h */,
 				94EC70DB1596BA8C0018AD05 /* AddGameViewController.m */,
 				94EC70DC1596BA8D0018AD05 /* AddGameViewController.xib */,
@@ -761,6 +766,7 @@
 				94EC70D0159699870018AD05 /* NSDate+DateAdditions.m in Sources */,
 				475EB20E1596A30400D70102 /* SingleGameViewController.m in Sources */,
 				94EC70DD1596BA8D0018AD05 /* AddGameViewController.m in Sources */,
+				94EC71201596D1860018AD05 /* SingleGameTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
