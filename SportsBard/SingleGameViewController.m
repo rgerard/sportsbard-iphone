@@ -55,6 +55,12 @@
 	[self _updateGameData];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	[self.storyTextField resignFirstResponder];
+	[self.socket disconnect];
+}
+
 - (void)_updateGameData {
 	NSString *gameid = [self.gameData objectForKey:@"gameid"];	
 	NSString *awayteam = [self.gameData objectForKey:@"awayteam"];
@@ -173,6 +179,10 @@
 	[self.socket sendEvent:@"storyhide" withData:data];
 }
 
+- (void)socketIOHandshakeFailed:(SocketIO *)socket {
+	NSLog(@"Handshake failed!");
+}
+
 - (void)socketIO:(SocketIO *)socket didReceiveMessage:(SocketIOPacket *)packet {
     NSLog(@"didReceiveMessage() >>> data: %@", packet.data);
 }
@@ -252,7 +262,8 @@
 		[cell setDelegate:self];
 	}
 
-	NSDictionary *story = [self.storyData objectAtIndex:indexPath.row];
+	NSInteger index = [self.storyData count] - indexPath.row - 1;
+	NSDictionary *story = [self.storyData objectAtIndex:index];
 	[cell setStoryData:story];
 	
 	return cell;
