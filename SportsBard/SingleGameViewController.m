@@ -8,6 +8,7 @@
 
 #import "SingleGameViewController.h"
 #import "SBJson.h"
+#import "SingleGameTableViewCell.h"
 
 @interface SingleGameViewController ()
 @property(strong, nonatomic) SocketIO *socket;
@@ -187,15 +188,19 @@
 	return [self.storyData count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80.0;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *CellIdentifier = @"Cell";
-	UITableViewCell *cell = [self.gameStoryFeed dequeueReusableCellWithIdentifier:CellIdentifier];
+	SingleGameTableViewCell *cell = [self.gameStoryFeed dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {	
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+		cell = [[SingleGameTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 	}
-  
+
 	NSDictionary *story = [self.storyData objectAtIndex:indexPath.row];
-	[[cell textLabel] setText:[story objectForKey:@"story"]];
+	[cell setStoryData:story];
 	
 	return cell;
 }

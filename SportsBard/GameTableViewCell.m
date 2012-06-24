@@ -73,6 +73,7 @@
 		[self.contentView addSubview:self.cellHeader];
 		[self.contentView addSubview:self.cellGameView];
 		
+		[self setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
     return self;
 }
