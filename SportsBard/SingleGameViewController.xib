@@ -47,7 +47,7 @@
 							<object class="IBUIImageView" id="962296421">
 								<reference key="NSNextResponder" ref="133422615"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{222, 47}, {50, 50}}</string>
+								<string key="NSFrame">{{222, 65}, {50, 50}}</string>
 								<reference key="NSSuperview" ref="133422615"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="659891724"/>
@@ -58,7 +58,7 @@
 							<object class="IBUIImageView" id="289204855">
 								<reference key="NSNextResponder" ref="133422615"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{49, 47}, {50, 50}}</string>
+								<string key="NSFrame">{{49, 65}, {50, 50}}</string>
 								<reference key="NSSuperview" ref="133422615"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="818152648"/>
@@ -69,7 +69,7 @@
 							<object class="IBUIButton" id="659891724">
 								<reference key="NSNextResponder" ref="133422615"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{9, 99}, {90, 37}}</string>
+								<string key="NSFrame">{{9, 120}, {90, 37}}</string>
 								<reference key="NSSuperview" ref="133422615"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="157377351"/>
@@ -104,7 +104,7 @@
 							<object class="IBUIButton" id="66121159">
 								<reference key="NSNextResponder" ref="133422615"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{222, 99}, {90, 37}}</string>
+								<string key="NSFrame">{{222, 120}, {90, 37}}</string>
 								<reference key="NSSuperview" ref="133422615"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="390665145"/>
@@ -126,7 +126,7 @@
 							<object class="IBUIButton" id="157377351">
 								<reference key="NSNextResponder" ref="133422615"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{118, 99}, {89, 37}}</string>
+								<string key="NSFrame">{{118, 120}, {89, 37}}</string>
 								<reference key="NSSuperview" ref="133422615"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="66121159"/>
@@ -148,7 +148,7 @@
 							<object class="IBUILabel" id="818152648">
 								<reference key="NSNextResponder" ref="133422615"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{146, 61}, {28, 21}}</string>
+								<string key="NSFrame">{{146, 79}, {28, 21}}</string>
 								<reference key="NSSuperview" ref="133422615"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="962296421"/>
@@ -337,6 +337,39 @@
 					<int key="connectionID">27</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">addButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="449327026"/>
+					</object>
+					<int key="connectionID">30</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">awayLogo</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="289204855"/>
+					</object>
+					<int key="connectionID">33</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">homeLogo</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="962296421"/>
+					</object>
+					<int key="connectionID">34</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">clickInning:</string>
+						<reference key="source" ref="659891724"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">29</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">clickAwayScore:</string>
 						<reference key="source" ref="66121159"/>
@@ -382,6 +415,22 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">dataSource</string>
+						<reference key="source" ref="390665145"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">31</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="390665145"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">32</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="133422615"/>
 						<reference key="destination" ref="372490531"/>
@@ -421,13 +470,13 @@
 						<reference key="object" ref="133422615"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="818152648"/>
-							<reference ref="659891724"/>
 							<reference ref="66121159"/>
 							<reference ref="157377351"/>
 							<reference ref="962296421"/>
 							<reference ref="289204855"/>
 							<reference ref="705990182"/>
 							<reference ref="449327026"/>
+							<reference ref="659891724"/>
 							<reference ref="390665145"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
@@ -500,7 +549,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">28</int>
+			<int key="maxID">34</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -532,14 +581,25 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="addButton">UIButton</string>
+						<string key="awayLogo">UIImageView</string>
 						<string key="awayTeamButton">UIButton</string>
 						<string key="gameStoryFeed">UITableView</string>
+						<string key="homeLogo">UIImageView</string>
 						<string key="homeTeamButton">UIButton</string>
 						<string key="inningsButton">UIButton</string>
 						<string key="scrollView">UIScrollView</string>
 						<string key="storyTextField">UITextField</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="addButton">
+							<string key="name">addButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="awayLogo">
+							<string key="name">awayLogo</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="awayTeamButton">
 							<string key="name">awayTeamButton</string>
 							<string key="candidateClassName">UIButton</string>
@@ -547,6 +607,10 @@
 						<object class="IBToOneOutletInfo" key="gameStoryFeed">
 							<string key="name">gameStoryFeed</string>
 							<string key="candidateClassName">UITableView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="homeLogo">
+							<string key="name">homeLogo</string>
+							<string key="candidateClassName">UIImageView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="homeTeamButton">
 							<string key="name">homeTeamButton</string>
