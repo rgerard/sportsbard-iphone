@@ -230,7 +230,41 @@
 		
 		NSLog(@"data is %@", story);
 		[self.storyData addObject:story];
-		[self.gameStoryFeed reloadData];
+		//[self.gameStoryFeed reloadData];
+		
+		// Animate in the new row
+		NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:0 inSection:0];
+		NSArray* rowsToReload = [NSArray arrayWithObjects:rowToReload, nil];
+		[self.gameStoryFeed insertRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationTop];
+	} else if(eventData && [[eventData objectForKey:@"name"] isEqualToString:@"storyhidden"]) {
+		NSArray *dataArr = [eventData objectForKey:@"args"];
+		NSDictionary *story = [dataArr objectAtIndex:0];
+		
+		NSLog(@"data is %@", story);
+		//[self.gameStoryFeed reloadData];
+		
+		// Find and replace the story
+		NSInteger foundStory = -1;
+		for(int i=0; i < [self.storyData count]; i++) {
+			NSDictionary *data = [self.storyData objectAtIndex:i];
+			NSString *storyid = [data objectForKey:@"_id"];
+			if([storyid isEqualToString:[story objectForKey:@"_id"]]) {
+				foundStory = i;
+				break;
+			}
+		}
+		
+		if(foundStory != -1) {
+			NSInteger top = [self.storyData count]-1;
+			top -= foundStory;
+			
+			[self.storyData removeObjectAtIndex:foundStory];
+			
+			// Animate in the new row
+			NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:top inSection:0];
+			NSArray* rowsToReload = [NSArray arrayWithObjects:rowToReload, nil];
+			[self.gameStoryFeed deleteRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationTop];
+		}
 	} else if(eventData && [[eventData objectForKey:@"name"] isEqualToString:@"storyupdated"]) {
 		NSArray *dataArr = [eventData objectForKey:@"args"];
 		NSDictionary *story = [dataArr objectAtIndex:0];
@@ -256,6 +290,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	// Filter out hidden stories
 	[self.storyData filterUsingPredicate:[NSPredicate predicateWithFormat:@"self.isHidden == FALSE"]];
 	
 	return [self.storyData count];
